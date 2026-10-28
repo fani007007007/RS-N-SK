@@ -5,9 +5,9 @@
  */
 
 import React, { useEffect } from 'react';
-import { Trophy, X, Medal } from 'lucide-react';
+import { Trophy, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { Player } from '../data/masterclassData';
+import { Player } from '../data/eslData';
 
 interface ScoreboardModalProps {
   isOpen: boolean;
@@ -40,11 +40,11 @@ export const ScoreboardModal: React.FC<ScoreboardModalProps> = ({
         <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
           <div className="flex items-center gap-2 text-amber-600 font-extrabold text-lg">
             <Trophy className="w-5 h-5 text-amber-500" />
-            <span>Masterclass Scoreboard</span>
+            <span>ESL Mastery Lab Scoreboard</span>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -95,7 +95,7 @@ export const ScoreboardModal: React.FC<ScoreboardModalProps> = ({
 
         <button
           onClick={onClose}
-          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-md transition-all"
+          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-md transition-all cursor-pointer"
         >
           Close Scoreboard
         </button>

@@ -1,11 +1,13 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Header Component with Creator Badge and Protection Actions
+ * Header component for ESL Mastery Lab
+ * Author & Creator: Fani
+ * © 2026 Fani. All rights reserved.
  */
 
 import React from 'react';
-import { ShieldCheck, Share2, Award, Maximize2, Minimize2, ZoomIn, ZoomOut, RotateCcw, PanelRightClose, PanelRightOpen } from 'lucide-react';
+import { Award, ShieldCheck, Share2, ZoomIn, ZoomOut, Maximize2, Minimize2, PanelRightClose, PanelRightOpen, Volume2, VolumeX } from 'lucide-react';
 
 interface HeaderProps {
   onOpenShareModal: () => void;
@@ -17,6 +19,8 @@ interface HeaderProps {
   onZoomReset: () => void;
   isFullscreen: boolean;
   onToggleFullscreen: () => void;
+  soundOn: boolean;
+  onToggleSound: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -28,23 +32,25 @@ export const Header: React.FC<HeaderProps> = ({
   onZoomOut,
   onZoomReset,
   isFullscreen,
-  onToggleFullscreen
+  onToggleFullscreen,
+  soundOn,
+  onToggleSound
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-gradient-to-r from-blue-950 via-indigo-900 to-blue-900 text-white shadow-xl border-b border-blue-800/60">
+    <header className="sticky top-0 z-40 bg-gradient-to-r from-teal-950 via-teal-900 to-emerald-950 text-white shadow-xl border-b border-teal-800/60">
       <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3">
         {/* Title and Branding */}
         <div className="text-center md:text-left">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span className="text-2xl">🎓</span>
+            <span className="text-2xl">📚</span>
             <h1 className="text-lg sm:text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
-              Getting Ready for Study
-              <span className="hidden sm:inline text-blue-300 font-normal">|</span>
-              <span className="text-blue-200 text-sm sm:text-base font-semibold">RSS Mid-Term Masterclass</span>
+              ESL Mastery Lab
+              <span className="hidden sm:inline text-teal-300 font-normal">|</span>
+              <span className="text-teal-200 text-sm sm:text-base font-semibold">Vocabulary, Grammar, Comparatives &amp; Chaos Arcade</span>
             </h1>
           </div>
-          <p className="text-xs text-blue-200/90 mt-0.5">
-            NCC Education • Topic 1: Study Skills, Procrastination, Prioritising, SMART Goals & Touch Board Games
+          <p className="text-xs text-teal-200/90 mt-0.5">
+            Partitives • Animal Families • Countable/Uncountable • Idioms • Animals • Reading &amp; Writing • 21 Board Games
           </p>
         </div>
 
@@ -70,14 +76,23 @@ export const Header: React.FC<HeaderProps> = ({
             title="View Official Live Link & Copyright Certificate"
           >
             <Share2 className="w-3.5 h-3.5" />
-            <span>Live Link & Rights</span>
+            <span>Live Link &amp; Rights</span>
+          </button>
+
+          {/* Sound Toggle */}
+          <button
+            onClick={onToggleSound}
+            className="p-1.5 bg-teal-900/80 hover:bg-teal-800 rounded-lg text-teal-200 hover:text-white transition-colors border border-teal-700/60"
+            title={soundOn ? "Mute Sound Effects" : "Enable Sound Effects"}
+          >
+            {soundOn ? <Volume2 className="w-3.5 h-3.5 text-emerald-300" /> : <VolumeX className="w-3.5 h-3.5 text-slate-400" />}
           </button>
 
           {/* Zoom & Fullscreen Controls */}
-          <div className="flex items-center gap-1 bg-blue-900/80 p-1 rounded-lg border border-blue-700/50">
+          <div className="flex items-center gap-1 bg-teal-900/80 p-1 rounded-lg border border-teal-700/50">
             <button
               onClick={onZoomOut}
-              className="p-1 hover:bg-blue-800 rounded text-blue-200 hover:text-white transition-colors"
+              className="p-1 hover:bg-teal-800 rounded text-teal-200 hover:text-white transition-colors"
               title="Zoom Out"
               aria-label="Zoom Out"
             >
@@ -85,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
             <button
               onClick={onZoomReset}
-              className="px-1.5 py-0.5 text-[11px] font-bold text-blue-300 hover:text-white hover:bg-blue-800 rounded transition-colors"
+              className="px-1.5 py-0.5 text-[11px] font-bold text-teal-300 hover:text-white hover:bg-teal-800 rounded transition-colors"
               title="Reset Zoom"
               aria-label="Reset Zoom"
             >
@@ -93,16 +108,16 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
             <button
               onClick={onZoomIn}
-              className="p-1 hover:bg-blue-800 rounded text-blue-200 hover:text-white transition-colors"
+              className="p-1 hover:bg-teal-800 rounded text-teal-200 hover:text-white transition-colors"
               title="Zoom In"
               aria-label="Zoom In"
             >
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
-            <div className="w-[1px] h-3.5 bg-blue-700/60 mx-0.5" />
+            <div className="w-[1px] h-3.5 bg-teal-700/60 mx-0.5" />
             <button
               onClick={onToggleFullscreen}
-              className="p-1 hover:bg-blue-800 rounded text-blue-200 hover:text-white transition-colors"
+              className="p-1 hover:bg-teal-800 rounded text-teal-200 hover:text-white transition-colors"
               title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
               aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
             >
@@ -115,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onToggleSidebar}
             className={`p-1.5 rounded-lg border transition-all ${
               isSidebarOpen
-                ? 'bg-blue-800/90 border-blue-600 text-white'
+                ? 'bg-teal-800/90 border-teal-600 text-white'
                 : 'bg-slate-800/90 border-slate-700 text-amber-300'
             }`}
             title={isSidebarOpen ? "Hide Games & Points Sidebar" : "Show Games & Points Sidebar"}

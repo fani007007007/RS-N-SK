@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ESL Mastery Lab — Vocabulary, Grammar, Comparatives, Idioms, Animals, Reading & Writing + Chaos Arcade</title>
+<style>
+:root{--primary:#00695c;--secondary:#004d40;--accent:#ff6f00;--success:#2e7d32;--danger:#c62828;--bg:#f4f7f6;--card:#fff;--text:#212121;--light:#e0f2f1;--border:#dee2e6;--sidebar-width:340px;--gold:#ffd700;--silver:#c0c0c0;--bronze:#cd7f32;--pink:#f72585}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);line-height:1.6;padding-right:var(--sidebar-width);transition:padding .3s}
+body.ui-hidden{padding-right:0}
+.header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:15px 20px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.25);position:sticky;top:0;z-index:100}
+.header h1{font-size:1.45rem;margin-bottom:3px}.header p{font-size:.84rem;opacity:.92}
+.band-tabs{display:flex;justify-content:center;gap:4px;background:var(--secondary);padding:8px 15px;flex-wrap:wrap;position:sticky;top:65px;z-index:99}
+.band-tab{padding:8px 12px;border:none;border-radius:6px 6px 0 0;cursor:pointer;font-weight:bold;font-size:.82rem;color:#fff;transition:.3s;touch-action:manipulation}
+.band-tab:hover{opacity:.85}.band-tab.active{transform:translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,.3)}
+.tab-vocab{background:#00695c}.tab-grammar{background:#0277bd}.tab-comp{background:#f72585}.tab-idioms{background:#ff6f00;color:#000}.tab-animals{background:#2e7d32}.tab-reading{background:#6a1b9a}.tab-writing{background:#ad1457}.tab-practice{background:#c62828}.tab-game{background:#ffd700;color:#000}
+.container{max-width:1150px;margin:0 auto;padding:15px;transition:max-width .3s}
+body.ui-hidden .container{max-width:100%}
+.section{display:none;animation:fadeIn .4s}.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card{background:var(--card);border-radius:14px;padding:2rem;margin-bottom:1.6rem;box-shadow:0 4px 20px rgba(0,0,0,.07);border-left:6px solid var(--primary)}
+.card h2{color:var(--secondary);margin-bottom:1rem;display:flex;align-items:center;gap:10px;font-size:1.55rem;flex-wrap:wrap}
+.card h3{color:var(--primary);margin:1.4rem 0 .5rem;font-size:1.2rem}
+.card h4{color:var(--secondary);margin:1rem 0 .4rem;font-size:1.02rem}
+.card p,.card li{line-height:1.8;font-size:1.01rem}
+.card ul,.card ol{padding-left:25px;margin:10px 0}.card li{margin-bottom:7px}
+.marks{background:var(--accent);color:#000;font-size:.78rem;padding:3px 12px;border-radius:14px;font-weight:800}
+.marks2{background:#7b1fa2;color:#fff;font-size:.74rem;padding:3px 10px;border-radius:12px;font-weight:700}
+.highlight-box{background:linear-gradient(135deg,#e0f2f1,#b2dfdb);border-radius:12px;padding:16px 18px;margin:14px 0;border-left:5px solid var(--accent)}
+.highlight-box strong{color:var(--secondary)}
+.quote-box{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:12px;padding:16px 20px;margin:14px 0;font-style:italic;border-left:5px solid var(--accent)}
+.warn-box{background:linear-gradient(135deg,#ffebee,#ffcdd2);border-radius:12px;padding:14px 18px;margin:12px 0;border-left:5px solid var(--danger)}
+.fact-box{background:linear-gradient(135deg,#ede7f6,#d1c4e9);border-radius:12px;padding:14px 18px;margin:12px 0;border-left:5px solid #5e35b1}
+.chaos-box{background:linear-gradient(135deg,#fce4ec,#f8bbd0);border-radius:12px;padding:14px 18px;margin:12px 0;border-left:5px solid var(--pink)}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:.94rem}
+.tbl th{background:var(--primary);color:#fff;padding:10px 12px;text-align:center}
+.tbl td{padding:9px 12px;border:1px solid #cfd8dc;text-align:center}
+.tbl tr:nth-child(even){background:#f7faf9}.tbl tr:hover{background:var(--light)}
+.tbl td.l,.tbl th.l{text-align:left}
+.idiom-card{background:linear-gradient(135deg,#fff8e1,#ffecb3);border:2px solid #ffb300;border-radius:12px;padding:14px 16px;margin:10px 0}
+.idiom-card strong{color:#e65100;font-size:1.05rem}.idiom-card em{color:#5d4037}
+.idiom-card .origin{display:block;margin-top:6px;font-size:.87rem;color:#6d4c41;font-style:italic;border-top:1px dashed #d7ccc8;padding-top:6px}
+.passage{background:#fafafa;border:1px solid #e0e0e0;border-radius:12px;padding:20px 22px;font-size:1.04rem;line-height:1.9;margin:12px 0}
+.passage p{margin-bottom:12px}.passage .hl{background:#fff59d;padding:0 3px;border-radius:3px;font-weight:600}
+.practice-item{background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:12px;border-left:4px solid var(--accent)}
+.practice-item strong{color:var(--secondary)}
+.matching-game{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:14px 0}
+.match-col h4{text-align:center;margin-bottom:10px;color:var(--primary)}
+.match-item{padding:12px;background:var(--light);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:.2s;border:2px solid transparent;text-align:center;touch-action:manipulation}
+.match-item:hover{border-color:var(--primary)}
+.match-item.selected{border-color:var(--accent);background:#fff3e0}
+.match-item.correct{border-color:var(--success);background:#e8f5e9}
+.match-item.wrong{border-color:var(--danger);background:#ffebee}
+@keyframes pulseHint{0%,100%{box-shadow:0 0 0 0 rgba(246,185,59,.85)}50%{box-shadow:0 0 0 12px rgba(246,185,59,0)}}
+.match-item.hintpulse,.sortzone.hintpulse{animation:pulseHint 1s ease 2;border-color:#f6b93b!important;background:#fff8e1!important}
+.sortwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.sortzone{min-height:150px;border:3px dashed #90a4ae;border-radius:12px;padding:12px;background:#fafafa;cursor:pointer;transition:.2s;touch-action:manipulation}
+.sortzone h4{text-align:center;margin-bottom:8px;color:var(--secondary)}
+.sortzone .slots{min-height:44px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.chip{padding:8px 15px;background:#eceff1;border:2px solid transparent;border-radius:20px;cursor:pointer;font-weight:600;transition:.18s;touch-action:manipulation}
+.chip:hover{background:#cfd8dc}.chip.sel{border-color:var(--accent);background:#fff3e0}
+.chip.placed{padding:5px 10px;font-size:.88rem;margin:3px;display:inline-block;background:#fff;border:1px solid #b0bec5;border-radius:14px;cursor:pointer}
+.chip.done{opacity:.45;pointer-events:none}
+.opt{display:block;padding:9px 12px;margin:5px 0;background:#fff;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:.18s;touch-action:manipulation}
+.opt:hover{border-color:var(--primary);background:#f1f8e9}.opt.sel{border-color:var(--accent);background:#fff3e0}
+.opt.right{border-color:var(--success);background:#e8f5e9}.opt.bad{border-color:var(--danger);background:#ffebee}.opt.struck{opacity:.4;text-decoration:line-through}
+.ehunt{background:#fff5f5;padding:13px 15px;border-radius:10px;margin-bottom:10px;border-left:4px solid var(--danger);cursor:pointer;transition:.2s;touch-action:manipulation}
+.ehunt:hover{background:#ffe3e3}.ehunt .correction{display:none;margin-top:8px;color:var(--success);font-weight:600;border-top:1px dashed #b0bec5;padding-top:8px}
+.btn{background:var(--primary);color:#fff;border:none;padding:10px 20px;border-radius:8px;font-size:.94rem;cursor:pointer;transition:.25s;font-weight:bold;margin:3px;touch-action:manipulation}
+.btn:hover{background:var(--secondary);transform:translateY(-2px)}
+.btn-success{background:var(--success)}.btn-danger{background:var(--danger)}.btn-accent{background:var(--accent);color:#fff}.btn-hint{background:#f6b93b;color:#333}.btn-chaos{background:var(--pink);color:#fff}
+.mini-btn{border:none;border-radius:5px;padding:4px 10px;font-size:.75rem;font-weight:bold;cursor:pointer;margin:2px;transition:.18s;touch-action:manipulation}
+.mini-hint{background:#f6b93b;color:#333}.mini-reveal{background:#8e44ad;color:#fff}
+.hint-text{display:none;color:#b7791f;font-size:.86rem;font-style:italic;margin:6px 0 0}
+.model-box{display:none;margin-top:8px;padding:10px 12px;background:#f1f8e9;border-left:4px solid var(--success);border-radius:6px;color:#33691e}
+textarea,input[type=text],input[type=number]{width:100%;padding:9px;border-radius:6px;border:1px solid #b0bec5;margin-top:5px;font-family:inherit;font-size:1rem}
+.fb-inline{display:inline-block!important;border:none!important;border-bottom:2px dashed var(--accent)!important;background:transparent!important;width:150px;text-align:center;margin:0 4px}
+.floating-ui{position:fixed;right:0;top:0;width:var(--sidebar-width);height:100vh;background:#fff;border-left:2px solid var(--border);box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:1000;overflow-y:auto;padding:15px;transition:transform .3s;-webkit-overflow-scrolling:touch}
+body.ui-hidden .floating-ui{transform:translateX(100%)}
+.floating-ui h3{color:var(--secondary);margin:12px 0 8px;font-size:1rem;border-bottom:2px solid var(--border);padding-bottom:5px}
+.floating-ui h3:first-child{margin-top:0}
+.player-card{display:flex;align-items:center;justify-content:space-between;padding:8px;margin-bottom:6px;border-radius:6px;cursor:pointer;border:3px solid transparent;background:#f8f9fa;transition:.25s;font-size:.9rem;touch-action:manipulation}
+.player-card.selected{border-color:var(--accent);background:#fff3e0}
+.player-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#fff;margin-right:8px;font-size:.85rem;flex-shrink:0}
+.control-bar{position:fixed;top:75px;left:15px;z-index:1001;display:flex;flex-direction:column;gap:8px}
+.control-btn{width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;font-size:1.05rem;box-shadow:0 3px 10px rgba(0,0,0,.2);transition:.18s;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.control-btn:hover{transform:scale(1.1)}
+.cb-toggle{background:#263238;color:#fff}.cb-fullscreen{background:var(--accent);color:#000}.cb-timer{background:var(--success);color:#fff}
+.cb-zoomin,.cb-zoomout{background:#00897b;color:#fff}.cb-zoomreset{background:#263238;color:#fff;font-size:.72rem;font-weight:bold}.cb-sound{background:#8e44ad;color:#fff}.cb-chaos{background:#78909c;color:#fff}
+.timer-widget{background:#fff;padding:12px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.1);margin-bottom:12px;display:none;border:2px solid var(--border)}
+.timer-widget.visible{display:block}
+.timer-display{font-size:2rem;font-weight:bold;text-align:center;color:var(--accent);margin:8px 0;font-variant-numeric:tabular-nums}
+.timer-inputs{display:flex;gap:8px;margin-bottom:8px}.timer-inputs div{flex:1}.timer-inputs label{font-size:.72rem;font-weight:bold;color:#78909c;display:block}.timer-inputs input{padding:5px;font-size:.9rem}
+.games-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.game-btn{padding:9px 4px;border:none;border-radius:8px;background:linear-gradient(135deg,#00695c,#6a1b9a);color:#fff;font-weight:700;font-size:.67rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.18s;touch-action:manipulation}
+.game-btn span{font-size:1.22rem}.game-btn:hover{transform:scale(1.06)}
+#gameOverlay{position:fixed;inset:0;z-index:3000;display:none;flex-direction:column;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+#gameOverlay *{touch-action:manipulation;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+#gameOverlay.visible{display:flex}
+[data-tap]{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.go-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(0,0,0,.3);color:#fff;backdrop-filter:blur(6px)}
+.go-title{font-size:1.3rem;font-weight:800}.go-player{background:rgba(255,255,255,.24);padding:6px 14px;border-radius:20px;font-weight:700;margin-right:6px}
+.go-iconbtn{width:44px;height:44px;border-radius:50%;border:none;font-size:1.2rem;cursor:pointer;background:rgba(255,255,255,.26);color:#fff;margin-left:8px;touch-action:manipulation}
+.go-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;overflow:auto;color:#fff;-webkit-overflow-scrolling:touch}
+.go-btn{padding:14px 30px;border:none;border-radius:12px;font-size:1.08rem;font-weight:800;cursor:pointer;background:#fff;color:#333;box-shadow:0 6px 18px rgba(0,0,0,.25);margin:6px;transition:.15s;touch-action:manipulation}
+.go-btn:active{transform:scale(.94)}.go-btn:disabled{opacity:.5}
+.go-result{margin-top:14px;font-size:1.35rem;font-weight:800;text-align:center;min-height:40px;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.go-wheelwrap{position:relative;width:min(74vmin,460px);height:min(74vmin,460px)}
+@keyframes confFall{to{transform:translateY(110vh) rotate(720deg)}}
+.mole-hole{aspect-ratio:1;background:radial-gradient(ellipse at center,#8d6e63 0%,#5d4037 75%);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;cursor:pointer;position:relative;overflow:hidden;touch-action:manipulation;box-shadow:inset 0 -8px 14px rgba(0,0,0,.45)}
+.mole-face{transform:translateY(115%);transition:transform .14s ease-out}.mole-hole.up .mole-face{transform:translateY(0)}
+.mem-card{aspect-ratio:1;background:linear-gradient(135deg,#00695c,#6a1b9a);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;cursor:pointer;touch-action:manipulation;transition:transform .15s,background .2s;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.mem-card:active{transform:scale(.93)}.mem-card.open{background:#fff}.mem-card.done{background:#d3f9d8;cursor:default}
+.go-die{width:150px;height:150px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#333;box-shadow:0 10px 30px rgba(0,0,0,.35);margin:20px}
+.go-die.rolling{animation:diceRoll .9s linear infinite}
+@keyframes diceRoll{0%{transform:rotate(0) translateY(0)}25%{transform:rotate(90deg) translateY(-14px)}50%{transform:rotate(180deg) translateY(0)}75%{transform:rotate(270deg) translateY(-14px)}100%{transform:rotate(360deg)}}
+.go-track{position:relative;width:min(86vw,700px);height:74px;border-radius:12px;overflow:hidden;display:flex;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.go-zone{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.78rem;line-height:1.1}
+.go-marker{position:absolute;top:-6px;bottom:-6px;width:6px;background:#fff;border-radius:3px;box-shadow:0 0 12px #fff;z-index:3}
+.go-boxes{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:14px;width:min(86vw,640px)}
+.go-box{height:108px;border-radius:12px;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:2.5rem;cursor:pointer;transition:.2s;touch-action:manipulation}
+.go-box.shake{animation:boxShake .5s}.go-box.opened{animation:boxOpen .5s forwards}
+@keyframes boxShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@keyframes boxOpen{0%{transform:scale(1)}50%{transform:scale(1.18) rotate(5deg)}100%{transform:scale(1)}}
+.go-cards{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.go-card{width:104px;height:152px;perspective:800px;cursor:pointer;touch-action:manipulation}
+.go-cardinner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.go-card.flipped .go-cardinner{transform:rotateY(180deg)}
+.go-cface{position:absolute;inset:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;backface-visibility:hidden}
+.go-cback{background:linear-gradient(135deg,#004d40,#6a1b9a);color:#fff;font-size:2rem}.go-cfront{background:#fff;color:#333;transform:rotateY(180deg);font-size:1.35rem}
+.go-slots{display:flex;gap:14px}
+.go-reel{width:108px;height:128px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.9rem;font-weight:800;color:#333;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.go-reel.spinning{animation:reelBlur .12s linear infinite}
+@keyframes reelBlur{0%{transform:translateY(-6px)}50%{transform:translateY(6px)}100%{transform:translateY(-6px)}}
+.go-balls{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:12px;width:min(86vw,620px)}
+.go-ball{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#4cc9f0);color:#023;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center;cursor:pointer;animation:ballWiggle 1.6s ease-in-out infinite;box-shadow:0 6px 16px rgba(0,0,0,.3);touch-action:manipulation}
+.go-ball.revealed{animation:none;background:#fff;transform:scale(1.1)}
+@keyframes ballWiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.go-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:min(86vw,470px)}
+.go-tile{aspect-ratio:1;border-radius:12px;background:linear-gradient(135deg,#8a5a2b,#c08552);border:3px solid #6b4423;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2.1rem;cursor:pointer;color:#fff;font-weight:800;transition:.2s;touch-action:manipulation}
+.go-tile.open{cursor:default}.go-tile.gem{background:linear-gradient(135deg,#0ba360,#3cba92)}.go-tile.bomb{background:linear-gradient(135deg,#434343,#000);animation:explode .5s}
+@keyframes explode{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
+.go-dartboard{position:relative;width:min(70vmin,420px);height:min(70vmin,420px);border-radius:50%;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.go-ring{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+.go-dart{position:absolute;font-size:2rem;z-index:6;transition:left .5s cubic-bezier(.2,.8,.3,1),top .5s cubic-bezier(.2,.8,.3,1);left:50%;top:104%}
+.go-coin{width:158px;height:158px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffe259,#ffa751);display:flex;align-items:center;justify-content:center;font-size:2.3rem;font-weight:900;color:#7a4b00;box-shadow:0 10px 30px rgba(0,0,0,.35);margin:20px}
+.go-coin.flipping{animation:coinFlip 1.4s ease-in-out}
+@keyframes coinFlip{0%{transform:rotateX(0)}100%{transform:rotateX(1800deg)}}
+.go-balloonarea{position:relative;width:min(92vw,900px);height:56vh;overflow:hidden;touch-action:manipulation}
+.go-balloon{position:absolute;bottom:-90px;font-size:3.3rem;cursor:pointer;animation:floatUp linear infinite;background:none;border:none;touch-action:manipulation;padding:10px}
+@keyframes floatUp{0%{transform:translateY(0)}100%{transform:translateY(-130vh)}}
+.go-balloon.popped{animation:none;font-size:1.9rem}
+.game-card{background:linear-gradient(135deg,#e0f2f1,#b2dfdb);border:2px solid var(--primary);border-radius:12px;padding:20px}
+.hint-box{display:none;background:#fff8e1;border-left:4px solid #f6b93b;padding:10px 14px;border-radius:6px;margin-top:10px;color:#8a6d3b;font-style:italic}
+.toast{position:fixed;bottom:25px;right:360px;padding:12px 20px;border-radius:8px;color:#fff;font-weight:bold;z-index:5000;transform:translateX(400px);transition:.4s;font-size:.95rem}
+body.ui-hidden .toast{right:25px}.toast.show{transform:translateX(0)}
+.toast.success{background:var(--success)}.toast.error{background:var(--danger)}.toast.info{background:var(--primary)}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.72);z-index:4000;justify-content:center;align-items:center}
+.modal-overlay.visible{display:flex}
+.modal{background:#fff;border-radius:14px;padding:25px;max-width:580px;width:92%;text-align:center;max-height:85vh;overflow-y:auto}
+.sb-entry{display:flex;align-items:center;justify-content:space-between;padding:12px;margin-bottom:8px;border-radius:10px;background:#f8f9fa}
+.sb-entry.gold{background:linear-gradient(135deg,#fff9c4,#fff176);border:2px solid var(--gold)}
+.sb-entry.silver{background:linear-gradient(135deg,#f5f5f5,#e0e0e0);border:2px solid var(--silver)}
+.sb-entry.bronze{background:linear-gradient(135deg,#efebe9,#d7ccc8);border:2px solid var(--bronze)}
+.target-btn,.risk-btn{padding:10px 14px;border:none;border-radius:10px;font-weight:800;cursor:pointer;margin:4px;background:#fff;color:#333;box-shadow:0 4px 12px rgba(0,0,0,.2);touch-action:manipulation}
+.target-btn.active{background:var(--accent);color:#fff}.risk-btn.sneaky{background:#2ecc71;color:#fff}.risk-btn.bold{background:#f1c40f;color:#000}.risk-btn.reckless{background:#e74c3c;color:#fff}
+:fullscreen body{padding-right:0}:fullscreen .container{max-width:100%;width:100%}:fullscreen .floating-ui{display:block}:fullscreen body.ui-hidden .floating-ui{transform:translateX(100%)}
+@media(max-width:900px){:root{--sidebar-width:280px}.header h1{font-size:1.12rem}.band-tab{padding:6px 9px;font-size:.75rem}.card{padding:1.2rem}.matching-game,.sortwrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>📚 ESL Mastery Lab — Vocabulary · Grammar · Comparatives · Idioms · Animals · Reading · Writing</h1>
+<p>Comprehensive topic mastery + full exam coverage | 🎮 Chaos Arcade: steal, double, triple, rob, bust</p>
+</div>
+<div class="band-tabs" id="mainTabs">
+<button class="band-tab tab-vocab active" onclick="switchSection('vocab')">🍽️ Vocabulary</button>
+<button class="band-tab tab-grammar" onclick="switchSection('grammar')">🔤 Grammar</button>
+<button class="band-tab tab-comp" onclick="switchSection('comp')">⚖️ Comparatives</button>
+<button class="band-tab tab-idioms" onclick="switchSection('idioms')">🗣️ Idioms</button>
+<button class="band-tab tab-animals" onclick="switchSection('animals')">🐾 Animals</button>
+<button class="band-tab tab-reading" onclick="switchSection('reading')">📖 Reading</button>
+<button class="band-tab tab-writing" onclick="switchSection('writing')">✍️ Writing</button>
+<button class="band-tab tab-practice" onclick="switchSection('practice')">📝 Practice</button>
+<button class="band-tab tab-game" onclick="switchSection('game')">🎮 Game Show</button>
+</div>
+<div class="control-bar">
+<button class="control-btn cb-toggle" onclick="toggleUI()" title="Hide/Show UI">👁️</button>
+<button class="control-btn cb-fullscreen" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
+<button class="control-btn cb-timer" onclick="toggleTimerWidget()" title="Timer">⏱️</button>
+<button class="control-btn cb-zoomin" onclick="zoomIn()" title="Zoom In">➕</button>
+<button class="control-btn cb-zoomout" onclick="zoomOut()" title="Zoom Out">➖</button>
+<button class="control-btn cb-zoomreset" onclick="zoomReset()" title="Reset Zoom">1:1</button>
+<button class="control-btn cb-sound" id="soundBtn" onclick="toggleSound()" title="Sound">🔊</button>
+<button class="control-btn cb-chaos" id="chaosCtrl" onclick="toggleChaos()" title="Chaos Mode">🌪️</button>
+</div>
+<div class="floating-ui" id="floatingUI">
+<div class="timer-widget" id="timerWidget">
+<h3>⏱️ Exam / Activity Timer</h3>
+<div class="timer-inputs"><div><label>Round (sec)</label><input type="number" id="prepTime" value="60" min="0"></div><div><label>Challenge (sec)</label><input type="number" id="speakTime" value="120" min="0"></div></div>
+<div class="timer-display" id="timerDisplay">01:00</div>
+<div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap"><button class="btn btn-success" onclick="startTimer('prep')">Start A</button><button class="btn" onclick="startTimer('speak')">Start B</button><button class="btn btn-danger" onclick="stopTimer()">Stop</button></div>
+<div style="display:flex;gap:4px;justify-content:center;margin-top:6px;flex-wrap:wrap"><button class="mini-btn" style="background:#78909c;color:#fff" onclick="presetTimer(600)">10m</button><button class="mini-btn" style="background:#78909c;color:#fff" onclick="presetTimer(1500)">25m</button><button class="mini-btn" style="background:#78909c;color:#fff" onclick="presetTimer(3000)">50m exam</button></div>
+</div>
+<h3>👥 Players & Points <button class="btn" style="float:right;font-size:.7rem;padding:2px 8px;background:#78909c" onclick="resetRoster()">↺ Roster</button></h3>
+<div style="display:flex;gap:5px;margin-bottom:10px"><input type="text" id="newPlayerName" placeholder="Name..." onkeypress="if(event.key==='Enter')addPlayer()" style="margin:0;font-size:.9rem"><button class="btn" onclick="addPlayer()" style="padding:6px 12px">+</button></div>
+<div id="playersList"></div>
+<button class="btn btn-accent" onclick="randomPlayer()" style="width:100%;margin-top:8px;font-size:.85rem">🎲 Random</button>
+<button class="btn" onclick="showScoreboard()" style="background:#ffd700;color:#333;width:100%;margin-top:5px;font-size:.85rem">🏆 Scoreboard</button>
+<h3>🌪️ Chaos Mode <button id="chaosBtn" class="btn btn-chaos" style="float:right;font-size:.72rem;padding:3px 10px" onclick="toggleChaos()">OFF</button></h3>
+<p style="font-size:.76rem;color:#546e7f;margin-bottom:8px">When ON, game wins may randomly trigger <strong>DOUBLE, TRIPLE, STEAL, ROBBED, LOSE HALF, BONUS, or BUST</strong>.</p>
+<h3>🎮 Board Games Arcade</h3>
+<div class="games-grid" id="gamesGrid"></div>
+<button class="btn" onclick="openGameSettings()" style="width:100%;margin-top:8px;font-size:.85rem">⚙️ Customize Games</button>
+<h3>⚡ Quick Points</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+<button class="btn btn-success" onclick="awardPts(5)" style="font-size:.85rem">+5</button>
+<button class="btn btn-success" onclick="awardPts(10)" style="font-size:.85rem">+10</button>
+<button class="btn btn-success" onclick="awardPts(15)" style="font-size:.85rem">+15</button>
+<button class="btn btn-danger" onclick="awardPts(-5)" style="font-size:.85rem">-5</button>
+</div>
+</div>
+<div class="container">
+
+<div id="sec-vocab" class="section active">
+<div class="card">
+<h2>🍽️ Vocabulary & Word Formation — Partitives, Families & Phonics</h2>
+<p>This topic teaches three connected systems: <strong>container words</strong>, <strong>animal family names</strong>, and <strong>vowel spelling patterns</strong>. Master the system, not just the list.</p>
+<h3>1A · Partitive (Unit) Nouns — "a ___ of ___"</h3>
+<p>Liquids, grains, powders, and many foods are <strong>mass nouns</strong>. To count them, English uses a <strong>partitive</strong>: the container, shape, portion, or vessel.</p>
+<table class="tbl"><tr><th class="l">Type</th><th class="l">Examples</th><th class="l">Logic</th></tr>
+<tr><td class="l">Container sold in</td><td class="l">carton of milk, jar of jam, can of soup, bottle of water, bag of rice</td><td class="l">Named for packaging.</td></tr>
+<tr><td class="l">Shape made in</td><td class="l">loaf of bread, bar of chocolate, slice of cake, stick of butter</td><td class="l">Named for form.</td></tr>
+<tr><td class="l">Small piece</td><td class="l">grain of sand, flake of snow, drop of rain, pinch of salt</td><td class="l">Named for portion.</td></tr>
+<tr><td class="l">Serving vessel</td><td class="l">cup of tea, bowl of cereal, glass of water, plate of pasta</td><td class="l">Named for what you eat/drink from.</td></tr>
+<tr><td class="l">Natural unit</td><td class="l">head of cabbage, clove of garlic, ear of corn, bunch of grapes</td><td class="l">Named for how it grows.</td></tr></table>
+<div class="fact-box"><strong>Real-world facts:</strong> The waxed-paper <strong>Tetra Pak carton</strong> was invented in <strong>1951 by Swedish engineer Erik Wallenberg</strong>. Metal cans were patented by <strong>Peter Durand</strong> around <strong>1810</strong>, and <strong>Nicolas Appert</strong> pioneered glass-jar preservation in France. The <strong>Mason jar</strong> was patented in <strong>1858</strong>. The word <strong>loaf</strong> comes from Old English <em>hlāf</em>.</div>
+<h3>1A-bis · Collective Nouns</h3>
+<table class="tbl"><tr><th class="l">Collective</th><th class="l">Animal</th><th class="l">Why?</th></tr>
+<tr><td class="l">pride</td><td class="l">lions</td><td class="l">Bold, social cats.</td></tr><tr><td class="l">flock</td><td class="l">birds/sheep</td><td class="l">Feeding group.</td></tr><tr><td class="l">herd</td><td class="l">cattle/elephants</td><td class="l">Large grazers.</td></tr><tr><td class="l">pack</td><td class="l">wolves/dogs</td><td class="l">Organised hunters.</td></tr><tr><td class="l">swarm</td><td class="l">bees/locusts</td><td class="l">Dense insect cloud.</td></tr><tr><td class="l">school/shoal</td><td class="l">fish</td><td class="l">Fish moving together.</td></tr><tr><td class="l">pod</td><td class="l">whales/dolphins</td><td class="l">Marine mammal group.</td></tr><tr><td class="l">gaggle</td><td class="l">ducks</td><td class="l">Noisy chatter.</td></tr><tr><td class="l">parliament</td><td class="l">owls</td><td class="l">Wise-looking debaters.</td></tr><tr><td class="l">murder</td><td class="l">crows</td><td class="l">Dark medieval joke.</td></tr><tr><td class="l">troop</td><td class="l">monkeys/kangaroos</td><td class="l">Military-style group.</td></tr><tr><td class="l">colony</td><td class="l">ants/penguins</td><td class="l">Settled community.</td></tr></table>
+<h3>1B · Animal Families — male · female · baby</h3>
+<table class="tbl"><tr><th class="l">Animal</th><th>Male ♂</th><th>Female ♀</th><th>Baby 👶</th><th class="l">Extra</th></tr>
+<tr><td class="l">Horse</td><td>stallion</td><td>mare</td><td>foal</td><td class="l">colt / filly</td></tr>
+<tr><td class="l">Chicken</td><td>rooster</td><td>hen</td><td>chick</td><td class="l">pullet</td></tr>
+<tr><td class="l">Cow</td><td>bull</td><td>cow</td><td>calf</td><td class="l">heifer = young cow</td></tr>
+<tr><td class="l">Cat</td><td>tom</td><td>queen</td><td>kitten</td><td class="l">gib = neutered male</td></tr>
+<tr><td class="l">Sheep</td><td>ram</td><td>ewe</td><td>lamb</td><td class="l">wether = castrated ram</td></tr>
+<tr><td class="l">Dog</td><td>dog/stud</td><td>bitch</td><td>pup</td><td class="l">litter</td></tr>
+<tr><td class="l">Bear</td><td>boar</td><td>sow</td><td>cub</td><td class="l">cub also lion/tiger</td></tr>
+<tr><td class="l">Deer</td><td>buck</td><td>doe</td><td>fawn</td><td class="l">antlers regrow</td></tr>
+<tr><td class="l">Duck</td><td>drake</td><td>duck</td><td>duckling</td><td class="l">gaggle</td></tr>
+<tr><td class="l">Goose</td><td>gander</td><td>goose</td><td>gosling</td><td class="l">flock</td></tr>
+<tr><td class="l">Pig</td><td>boar</td><td>sow</td><td>piglet</td><td class="l">litter</td></tr>
+<tr><td class="l">Goat</td><td>billy</td><td>nanny</td><td>kid</td><td class="l">herd</td></tr>
+<tr><td class="l">Lion</td><td>lion</td><td>lioness</td><td>cub</td><td class="l">pride</td></tr>
+<tr><td class="l">Elephant</td><td>bull</td><td>cow</td><td>calf</td><td class="l">herd</td></tr>
+<tr><td class="l">Whale</td><td>bull</td><td>cow</td><td>calf</td><td class="l">pod; mammal</td></tr>
+<tr><td class="l">Bee</td><td>drone</td><td>queen</td><td>larva</td><td class="l">workers are female</td></tr></table>
+<div class="warn-box"><strong>Exam traps:</strong> baby cow = <strong>calf</strong>, not cub. baby horse = <strong>foal</strong>. female sheep = <strong>ewe</strong>. female cat = <strong>queen</strong>. male bee = <strong>drone</strong>.</div>
+<h3>1C · Short & Long Vowels</h3>
+<table class="tbl"><tr><th>Type</th><th class="l">Vowel says</th><th class="l">Examples</th></tr>
+<tr><td><strong>Long</strong></td><td class="l">its alphabet name</td><td class="l">home, bike, rope, cake, cute</td></tr>
+<tr><td><strong>Short</strong></td><td class="l">quick clipped sound</td><td class="l">cut, pet, hop, sit, tub</td></tr></table>
+<div class="highlight-box"><strong>Magic 'e':</strong> In <em>vowel + consonant + e</em>, the final e is silent but makes the earlier vowel long: <strong>hop → hope</strong>, <strong>bit → bite</strong>, <strong>cut → cute</strong>. This is a spelling fossil from Old English, when the final e was once pronounced.</div>
+<table class="tbl"><tr><th class="l">Short</th><th class="l">+ magic e</th><th class="l">Meaning change</th></tr>
+<tr><td class="l">hop</td><td class="l">hope</td><td class="l">jump → wish</td></tr><tr><td class="l">bit</td><td class="l">bite</td><td class="l">piece → nip</td></tr><tr><td class="l">hat</td><td class="l">hate</td><td class="l">headwear → dislike</td></tr><tr><td class="l">tub</td><td class="l">tube</td><td class="l">bath → pipe</td></tr><tr><td class="l">man</td><td class="l">mane</td><td class="l">person → lion hair</td></tr></table>
+<div class="quote-box">🎯 <strong>Method:</strong> Say the word. Does the vowel say its letter name? Long. Is it short and clipped? Short. Look for silent e at the end.</div>
+</div>
+</div>
+
+<div id="sec-grammar" class="section">
+<div class="card" style="border-left-color:#0277bd">
+<h2>🔤 Countable & Uncountable Nouns — the complete system</h2>
+<p><strong>Count nouns</strong> are separate objects: one egg, two eggs. <strong>Uncount nouns</strong> are masses, liquids, powders, abstract ideas, or categories: water, rice, information, music.</p>
+<table class="tbl"><tr><th class="l">Test</th><th class="l">Countable</th><th class="l">Uncountable</th></tr>
+<tr><td class="l">a / an</td><td class="l">✅ an egg</td><td class="l">❌ ~~a water~~</td></tr>
+<tr><td class="l">plural -s</td><td class="l">✅ two tomatoes</td><td class="l">❌ ~~two breads~~</td></tr>
+<tr><td class="l">many / much</td><td class="l">✅ many apples</td><td class="l">✅ much water</td></tr>
+<tr><td class="l">a few / a little</td><td class="l">✅ a few carrots</td><td class="l">✅ a little cheese</td></tr>
+<tr><td class="l">verb</td><td class="l">✅ The eggs are fresh</td><td class="l">✅ The meat is fresh</td></tr></table>
+<h3>Seven families of uncountable nouns</h3>
+<ol><li>Liquids: water, milk, juice, tea, coffee, oil.</li><li>Powders/grains: rice, sugar, salt, flour, pepper, sand.</li><li>Materials: wood, metal, plastic, glass, paper, wool.</li><li>Foods as masses: bread, meat, cheese, butter, fish, fruit.</li><li>Abstract ideas: information, advice, music, fun, homework, progress, research, knowledge.</li><li>School subjects/languages: English, maths, physics, economics, news.</li><li>Meals/weather/games: breakfast, lunch, weather, rain, chess, football, swimming, luggage, furniture, equipment, money.</li></ol>
+<div class="warn-box"><strong>Memorise these:</strong> information, advice, homework, furniture, luggage, equipment, machinery, jewellery, clothing, money, news, bread, meat, cheese, rice, sugar, weather, research, evidence, knowledge, progress, fun, music, transport, scenery.</div>
+<h3>Words that change meaning</h3>
+<table class="tbl"><tr><th class="l">Noun</th><th class="l">Uncountable</th><th class="l">Countable</th></tr>
+<tr><td class="l">coffee</td><td class="l">the drink</td><td class="l">two coffees = two cups</td></tr>
+<tr><td class="l">glass</td><td class="l">material</td><td class="l">a glass = vessel</td></tr>
+<tr><td class="l">paper</td><td class="l">material</td><td class="l">a paper = newspaper/essay</td></tr>
+<tr><td class="l">hair</td><td class="l">all head hair</td><td class="l">a hair = one strand</td></tr>
+<tr><td class="l">experience</td><td class="l">skill over time</td><td class="l">an experience = event</td></tr></table>
+<h3>Quantifiers</h3>
+<table class="tbl"><tr><th class="l">Quantifier</th><th class="l">Use</th><th class="l">Example</th></tr>
+<tr><td class="l">many</td><td class="l">countable</td><td class="l">many apples</td></tr><tr><td class="l">much</td><td class="l">uncountable</td><td class="l">much water</td></tr><tr><td class="l">some</td><td class="l">positives, offers, requests</td><td class="l">Would you like some tea?</td></tr><tr><td class="l">any</td><td class="l">negatives, questions</td><td class="l">I don't have any bread.</td></tr><tr><td class="l">a few / few</td><td class="l">countable</td><td class="l">a few friends / few friends</td></tr><tr><td class="l">a little / little</td><td class="l">uncountable</td><td class="l">a little milk / little time</td></tr><tr><td class="l">fewer / less</td><td class="l">countable / uncountable</td><td class="l">fewer coins / less money</td></tr></table>
+<div class="highlight-box"><strong>Some vs Any exception:</strong> Offers and requests use <strong>some</strong>: "Can I have some water?" / "Would you like some dessert?"</div>
+</div>
+</div>
+
+<div id="sec-comp" class="section">
+<div class="card" style="border-left-color:#f72585">
+<h2>⚖️ Comparative Adjectives — compare accurately</h2>
+<p>Comparative adjectives show the difference between <strong>two</strong> things. We usually use <strong>than</strong>: <em>The red car is faster than the blue car.</em></p>
+<h3>The Golden Rules</h3>
+<table class="tbl"><tr><th class="l">Rule</th><th class="l">Change</th><th class="l">Examples</th></tr>
+<tr><td class="l">1 syllable</td><td class="l">add -er</td><td class="l">old → older, tall → taller, fast → faster</td></tr>
+<tr><td class="l">Ends in e</td><td class="l">add -r</td><td class="l">large → larger, nice → nicer, wise → wiser</td></tr>
+<tr><td class="l">CVC ending</td><td class="l">double final consonant + er</td><td class="l">big → bigger, hot → hotter, thin → thinner</td></tr>
+<tr><td class="l">2 syllables ending y</td><td class="l">y → i + er</td><td class="l">happy → happier, easy → easier, busy → busier</td></tr>
+<tr><td class="l">2+ syllables not y</td><td class="l">use more</td><td class="l">more beautiful, more expensive, more interesting</td></tr></table>
+<h3>Irregular comparatives</h3>
+<table class="tbl"><tr><th>Base</th><th>Comparative</th></tr><tr><td>good</td><td><strong>better</strong></td></tr><tr><td>bad</td><td><strong>worse</strong></td></tr><tr><td>far</td><td><strong>farther / further</strong></td></tr><tr><td>little</td><td><strong>less</strong></td></tr><tr><td>many/much</td><td><strong>more</strong></td></tr></table>
+<h3>Four comparison types</h3>
+<ol>
+<li><strong>Inequality:</strong> A cheetah is <em>faster than</em> a lion.</li>
+<li><strong>Equality:</strong> use <em>as + adjective + as</em>: My coffee is <em>as hot as</em> yours.</li>
+<li><strong>Progressive change:</strong> comparative + and + comparative: The weather is getting <em>colder and colder</em>.</li>
+<li><strong>Correlative / parallel:</strong> The + comparative, the + comparative: <em>The harder you work, the luckier you get.</em></li>
+</ol>
+<div class="warn-box"><strong>Common errors:</strong> "more better" ❌ → "better" ✅; "hoter" ❌ → "hotter" ✅; "prettier that" ❌ → "prettier than" ✅.</div>
+<h3>Riddles</h3>
+<details><summary>Riddle 1: I am colder than ice, but harder than rock. I am smaller than a planet, but bigger than a marble. What am I?</summary><div class="content"><strong>Answer:</strong> A snowball or hailstone.</div></details>
+<details><summary>Riddle 2: I am faster than a walk, but slower than a sprint. What am I?</summary><div class="content"><strong>Answer:</strong> A jog.</div></details>
+<details><summary>Riddle 3: I am more expensive than a book, but cheaper than a car. I am lighter than a laptop, but heavier than a phone. What am I?</summary><div class="content"><strong>Answer:</strong> A tablet.</div></details>
+</div>
+</div>
+
+<div id="sec-idioms" class="section">
+<div class="card" style="border-left-color:#ff6f00">
+<h2>🗣️ Idioms & Phrases — meaning, grammar & history</h2>
+<p>An idiom is a fixed phrase whose meaning is not literal. Notice how many animal idioms describe human behaviour.</p>
+<div class="idiom-card"><strong>🍰 piece of cake</strong> — very easy<span class="origin">Linked to 19th-century American "cake walk" contests.</span></div>
+<div class="idiom-card"><strong>🍌 go bananas</strong> — become wildly excited/crazy<span class="origin">1930s US slang.</span></div>
+<div class="idiom-card"><strong>🛋️ couch potato</strong> — lazy TV watcher<span class="origin">Coined in 1976 by Tom Iacino; popularised by cartoons.</span></div>
+<div class="idiom-card"><strong>🐺 wolf down</strong> — eat very fast<span class="origin">From the wolf's ravenous reputation.</span></div>
+<div class="idiom-card"><strong>🐔 chicken out</strong> — withdraw from fear<span class="origin">"Chicken" as coward is early 20th century.</span></div>
+<div class="idiom-card"><strong>🐒 monkey around</strong> — play sillily<span class="origin">Monkeys as mischievous figures go back centuries.</span></div>
+<div class="idiom-card"><strong>🥚 bad egg</strong> — dishonest person<span class="origin">One rotten egg spoils the batch.</span></div>
+<div class="idiom-card"><strong>🐷 pig out</strong> — eat greedily<span class="origin">1950s US slang; pigs cannot sweat and wallow in mud.</span></div>
+<div class="idiom-card"><strong>🦡 ferret out</strong> — search until found<span class="origin">Ferrets were used to flush rabbits from burrows.</span></div>
+<div class="idiom-card"><strong>🦆 duck out</strong> — leave quietly<span class="origin">Like a duck diving under water.</span></div>
+<table class="tbl"><tr><th class="l">More idiom</th><th class="l">Meaning</th><th class="l">Note</th></tr>
+<tr><td class="l">raining cats and dogs</td><td class="l">raining heavily</td><td class="l">In print since 1600s; origin uncertain.</td></tr>
+<tr><td class="l">break a leg</td><td class="l">good luck</td><td class="l">Theatre superstition.</td></tr>
+<tr><td class="l">hit the books</td><td class="l">study hard</td><td class="l">Useful for school topics.</td></tr>
+<tr><td class="l">burn the midnight oil</td><td class="l">work late</td><td class="l">Pre-electric lamp era.</td></tr>
+<tr><td class="l">bite the bullet</td><td class="l">endure pain bravely</td><td class="l">Battlefield surgery image.</td></tr>
+<tr><td class="l">mad as a hatter</td><td class="l">crazy</td><td class="l">Mercury poisoning in hat-making.</td></tr>
+<tr><td class="l">once in a blue moon</td><td class="l">very rarely</td><td class="l">Astronomical extra full moon.</td></tr>
+<tr><td class="l">cry over spilt milk</td><td class="l">regret what cannot be fixed</td><td class="l">Proverb recorded by John Ray, 1659.</td></tr></table>
+<div class="warn-box"><strong>Grammar:</strong> Idioms still obey tense. "chicken out" → "she <strong>chickened</strong> out". After "started to" use base form: "started to <strong>go</strong> bananas". With pronouns: "wolfed <em>them</em> down", not "wolfed down them".</div>
+</div>
+</div>
+
+<div id="sec-animals" class="section">
+<div class="card" style="border-left-color:#2e7d32">
+<h2>🐾 Animal World — classify by features, not habitat</h2>
+<table class="tbl"><tr><th class="l">Group</th><th class="l">Defining features</th><th class="l">Examples</th><th class="l">Surprises</th></tr>
+<tr><td class="l">Mammal</td><td class="l">mammary glands, hair/fur at some stage, warm-blooded, most live birth</td><td class="l">human, whale, bat, lion</td><td class="l">whale/dolphin = mammals; bat = mammal; platypus lays eggs</td></tr>
+<tr><td class="l">Bird</td><td class="l">feathers, beak, hard-shelled eggs, two legs</td><td class="l">eagle, penguin, ostrich</td><td class="l">penguin is a flightless bird; ostrich eye bigger than brain</td></tr>
+<tr><td class="l">Insect</td><td class="l">6 legs, 3 body parts, exoskeleton</td><td class="l">butterfly, ant, bee</td><td class="l">spider is arachnid, not insect</td></tr>
+<tr><td class="l">Reptile</td><td class="l">cold-blooded, scales, air breathing</td><td class="l">snake, lizard, turtle</td><td class="l">crocodile closest relatives are birds</td></tr>
+<tr><td class="l">Fish</td><td class="l">gills, fins, water life</td><td class="l">shark, salmon</td><td class="l">shark skeleton is cartilage</td></tr>
+<tr><td class="l">Amphibian</td><td class="l">moist skin, water-linked life cycle</td><td class="l">frog, toad</td><td class="l">not a fish</td></tr></table>
+<div class="fact-box"><strong>Authentic facts:</strong> Blue whales are the largest animals ever known, up to about 30 m and 150+ tonnes. Their hearts can weigh around 180 kg, and their calls are among the loudest animal sounds. Sperm whales dive over 1,000 m; scientific tracking has recorded beaked whales near 3,000 m for over three hours. Worker bees are sterile females; male drones develop from unfertilised eggs and have no father. Honeybee waggle dance was decoded by Karl von Frisch, Nobel Prize 1973. Around one third of human food depends on animal pollinators according to FAO estimates.</div>
+<h3>Animal describers</h3>
+<table class="tbl"><tr><th class="l">Animal</th><th class="l">Describers</th><th class="l">Evidence</th></tr>
+<tr><td class="l">lion</td><td class="l">fierce, powerful, majestic, social</td><td class="l">apex predator; lives in pride</td></tr>
+<tr><td class="l">elephant</td><td class="l">huge, gentle, wise, strong</td><td class="l">largest land animal; complex social behaviour</td></tr>
+<tr><td class="l">fox</td><td class="l">clever, sly, quick</td><td class="l">problem-solving hunter</td></tr>
+<tr><td class="l">snail</td><td class="l">slow, slimy, delicate</td><td class="l">moves on mucus</td></tr>
+<tr><td class="l">dolphin</td><td class="l">intelligent, playful, social</td><td class="l">signature whistles, tool use</td></tr></table>
+</div>
+</div>
+
+<div id="sec-reading" class="section">
+<div class="card" style="border-left-color:#6a1b9a">
+<h2>📖 Reading & Comprehension — strategies + exam passage</h2>
+<ol><li><strong>Skimming:</strong> get the gist quickly.</li><li><strong>Scanning:</strong> find a specific detail.</li><li><strong>Literal:</strong> answer is in the text.</li><li><strong>Inference:</strong> text clue + your reasoning.</li></ol>
+<div class="quote-box">🧱 <strong>PEEL:</strong> Point, Evidence, Explain, Link. For 4-mark inference, use 2–3 sentences. For 8-mark opinion, use 4–5 sentences, a describer, a reason, and a link back to the text.</div>
+<h3>A Memorable Day at the Zoo</h3>
+<div class="passage">
+<p>Last Sunday, my family went to the City Zoo. It was a sunny day, perfect for a picnic. We packed a <span class="hl">loaf of bread</span>, a <span class="hl">carton of juice</span>, and some apples. When we arrived, we saw many animals.</p>
+<p>First, we visited the monkey enclosure. The monkeys were <span class="hl">monkeying around</span> on the trees, swinging from branch to branch. It was funny to watch them.</p>
+<p>Next, we went to the lion's den. The lion looked very <span class="hl">fierce</span>, but he was actually sleeping. My little sister was scared, but I told her it was a <span class="hl">piece of cake</span> to watch him from behind the glass.</p>
+<p>At lunchtime, we were so hungry that we <span class="hl">wolfed down</span> our sandwiches. After eating, we felt like <span class="hl">couch potatoes</span>, so we sat on a bench and watched the birds. Suddenly, a duck came close to us. My dad tried to feed it, but the duck <span class="hl">ducked out</span> and ran away into the pond. It was a memorable meal and a fun day!</p>
+</div>
+<table class="tbl"><tr><th class="l">Q</th><th class="l">Model answer</th></tr>
+<tr><td class="l">1. What food containers are mentioned?</td><td class="l">A loaf of bread and a carton of juice.</td></tr>
+<tr><td class="l">2. What does "wolfed down" mean?</td><td class="l">They ate their sandwiches extremely quickly.</td></tr>
+<tr><td class="l">3. Inference: why couch potatoes?</td><td class="l">They had eaten a large meal quickly, felt full and lazy, and wanted to sit still and rest, like people watching TV.</td></tr>
+<tr><td class="l">4. One uncountable + one countable noun</td><td class="l">Uncountable: juice/bread. Countable: apples/monkey/bird/duck/branch/sandwich.</td></tr>
+<tr><td class="l">5. Add an animal and why</td><td class="l">"I would add an elephant because elephants are huge and gentle. They would be more impressive than the sleeping lion, and my little sister would not be scared because elephants are known for being kind."</td></tr></table>
+</div>
+</div>
+
+<div id="sec-writing" class="section">
+<div class="card" style="border-left-color:#ad1457">
+<h2>✍️ Functional Dialogue & Narrative Writing</h2>
+<h3>Restaurant English</h3>
+<table class="tbl"><tr><th class="l">Job</th><th class="l">Polite formula</th></tr>
+<tr><td class="l">Order main</td><td class="l">I would like the grilled chicken, please.</td></tr>
+<tr><td class="l">Order drink</td><td class="l">Yes, a glass of orange juice, please.</td></tr>
+<tr><td class="l">Ask dessert</td><td class="l">Would you like any dessert?</td></tr>
+<tr><td class="l">Refuse</td><td class="l">No, thank you. Just the bill, please.</td></tr></table>
+<div class="highlight-box"><strong>Mark tips:</strong> use <em>please</em>; use a container word for drinks; questions need inversion and a question mark.</div>
+<h3>Narrative: memorable meal</h3>
+<p>Use: context → action + idiom → sensory detail → reflection. Keep past tense.</p>
+<div class="passage" style="border-left:5px solid var(--success)"><p>"The most memorable meal I had was my grandmother's birthday dinner last summer. There was so much food that we all <strong>pigged out</strong> on dumplings and noodles. My cousin <strong>wolfed down</strong> two slices of cake in under a minute. Afterwards, we turned into complete <strong>couch potatoes</strong> and watched fireworks from the sofa. I will never forget it because my whole family was laughing together."</p></div>
+<div class="warn-box"><strong>Lost marks:</strong> no idiom, wrong tense, too few sentences.</div>
+</div>
+</div>
+
+<div id="sec-practice" class="section">
+<div class="card" style="border-left-color:#c62828">
+<h2>📝 Practice Lab — expanded drills</h2>
+<h3>Drill 1 · Food Containers</h3><div class="matching-game" id="containerMatch"></div>
+<div style="text-align:center"><button class="mini-btn mini-hint" onclick="mHint('cont')">💡 Hint</button><button class="mini-btn mini-reveal" onclick="mReveal('cont')">👁 Reveal</button></div>
+<div style="text-align:center;margin-top:8px"><button class="btn btn-success" onclick="mCheck('cont')">✅ Check</button><button class="btn" onclick="mReset('cont')">🔄 Reset</button></div><div id="contResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 2 · Collective Nouns</h3><div class="matching-game" id="collectiveMatch"></div>
+<div style="text-align:center"><button class="mini-btn mini-hint" onclick="mHint('coll')">💡 Hint</button><button class="mini-btn mini-reveal" onclick="mReveal('coll')">👁 Reveal</button></div>
+<div style="text-align:center;margin-top:8px"><button class="btn btn-success" onclick="mCheck('coll')">✅ Check</button><button class="btn" onclick="mReset('coll')">🔄 Reset</button></div><div id="collResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 3 · Animal Families</h3><div id="animalFill"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="fCheck('animal')">✅ Check</button><button class="btn" onclick="fReset('animal')">🔄 Reset</button></div><div id="animalResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 4 · Short or Long Vowels</h3><div id="vowelSort"></div>
+
+<h3>Drill 5 · Spell the Word</h3><div id="spellFill"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="fCheck('spell')">✅ Check</button><button class="btn" onclick="fReset('spell')">🔄 Reset</button></div><div id="spellResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 6 · Countable or Uncountable</h3><div id="cuSort"></div>
+
+<h3>Drill 7 · Comparative Forms</h3><div id="compFill"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="fCheck('comp')">✅ Check</button><button class="btn" onclick="fReset('comp')">🔄 Reset</button></div><div id="compResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 8 · Quantifiers</h3><div id="quantFill"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="fCheck('quant')">✅ Check</button><button class="btn" onclick="fReset('quant')">🔄 Reset</button></div><div id="quantResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 9 · Idiom Meanings</h3><div class="matching-game" id="idiomMatch"></div>
+<div style="text-align:center"><button class="mini-btn mini-hint" onclick="mHint('idiomMean')">💡 Hint</button><button class="mini-btn mini-reveal" onclick="mReveal('idiomMean')">👁 Reveal</button></div>
+<div style="text-align:center;margin-top:8px"><button class="btn btn-success" onclick="mCheck('idiomMean')">✅ Check</button><button class="btn" onclick="mReset('idiomMean')">🔄 Reset</button></div><div id="idiomMeanResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 10 · Idiom Fill-in</h3><div id="idiomFill"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="fCheck('idiom')">✅ Check</button><button class="btn" onclick="fReset('idiom')">🔄 Reset</button></div><div id="idiomResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 11 · Multiple Choice</h3><div id="mcqBox"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="mcqCheck()">✅ Check</button><button class="btn" onclick="mcqReset()">🔄 Reset</button></div><div id="mcqResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 12 · True or False</h3><div id="tfBox"></div>
+<div style="text-align:center"><button class="btn btn-success" onclick="tfCheck()">✅ Check</button><button class="btn" onclick="tfReset()">🔄 Reset</button></div><div id="tfResult" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>
+
+<h3>Drill 13 · Error Hunt</h3><div id="errBox"></div>
+
+<h3>Drill 14 · Reading Comprehension</h3><div id="readBox"></div>
+</div>
+</div>
+
+<div id="sec-game" class="section">
+<div class="card">
+<h2>🎮 Classroom Game Show</h2>
+<div style="text-align:center;margin-bottom:15px">
+<button class="btn" onclick="prevQ()">⬅ Prev</button><button class="btn btn-hint" onclick="hintQ()">💡 Hint</button><button class="btn btn-accent" onclick="revealQ()">👁 Reveal</button><button class="btn" onclick="nextQ()">Next ➡</button><button class="btn btn-success" onclick="shuffleQ()">🔀 Shuffle</button>
+</div>
+<div class="game-card">
+<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span id="gQNum" style="font-weight:bold">Q1</span><span id="gQCat" style="background:#ff6f00;padding:2px 10px;border-radius:10px;font-size:.85rem;color:#000">Cat</span></div>
+<h3 id="gQText" style="font-size:1.22rem;color:var(--secondary);margin:0 0 15px">Welcome!</h3>
+<div id="gQHint" class="hint-box"></div>
+<div id="gQAns" style="display:none;background:#fff;padding:12px;border-radius:6px;border-left:4px solid var(--success)"></div>
+<div id="gQExp" style="display:none;margin-top:8px;font-style:italic;color:#78909c;font-size:.9rem"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="gameOverlay"></div>
+<div class="modal-overlay" id="gameSettingsModal"><div class="modal"><h2>⚙️ Customize Board Games</h2><p style="font-size:.9rem;color:#78909c;margin-bottom:12px">Edit point values where applicable.</p><div id="gsBody" style="max-height:50vh;overflow-y:auto;padding-right:6px"></div>
+<button class="btn btn-success" onclick="saveGameSettings()">💾 Save</button><button class="btn btn-danger" onclick="resetGameConfig()">↺ Reset</button><button class="btn" style="background:#78909c" onclick="document.getElementById('gameSettingsModal').classList.remove('visible')">Close</button></div></div>
+<div class="modal-overlay" id="sbModal"><div class="modal"><h2>🏆 Final Scoreboard</h2><div id="sbContent"></div><button class="btn" onclick="hideSB()" style="margin-top:15px">Close</button></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id), $$=s=>document.querySelectorAll(s);
+let zoomLevel=parseFloat(localStorage.getItem('eslZoom'))||1;
+function applyZoom(q){document.body.style.zoom=zoomLevel;if(!q)showToast('🔍 Zoom: '+Math.round(zoomLevel*100)+'%','info');}
+function zoomIn(){zoomLevel=Math.min(1.6,+(zoomLevel+0.1).toFixed(2));localStorage.setItem('eslZoom',zoomLevel);applyZoom();}
+function zoomOut(){zoomLevel=Math.max(0.7,+(zoomLevel-0.1).toFixed(2));localStorage.setItem('eslZoom',zoomLevel);applyZoom();}
+function zoomReset(){zoomLevel=1;localStorage.setItem('eslZoom',1);applyZoom();}
+let soundOn=localStorage.getItem('eslSound')!=='0',AC=null;
+function ac(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC;}
+function beep(f,d,t,v){if(!soundOn)return;const c=ac();if(!c)return;try{const o=c.createOscillator(),g=c.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=v||.12;o.connect(g);g.connect(c.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+d);o.stop(c.currentTime+d);}catch(e){}}
+function tick(){beep(1300,.045,'square',.05);} function winSound(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.18,'triangle',.12),i*90));} function loseSound(){beep(170,.3,'sawtooth',.09);} function toggleSound(){soundOn=!soundOn;localStorage.setItem('eslSound',soundOn?'1':'0');$('soundBtn').textContent=soundOn?'🔊':'';showToast(soundOn?'Sound ON':'Sound OFF','info');}
+function confetti(){const c=document.createElement('div');c.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:6000;overflow:hidden';document.body.appendChild(c);const cols=['#f94144','#f3722c','#f8961e','#f9c74f','#90be6d','#43aa8b','#577590','#f72585','#4361ee','#ffd700'];for(let i=0;i<90;i++){const p=document.createElement('i');const s=6+Math.random()*9;p.style.cssText=`position:absolute;top:-24px;left:${Math.random()*100}%;width:${s}px;height:${s*.45}px;background:${cols[i%cols.length]};border-radius:2px;transform:rotate(${Math.random()*360}deg);animation:confFall ${2+Math.random()*2.2}s linear forwards;animation-delay:${Math.random()*.6}s`;c.appendChild(p);}setTimeout(()=>c.remove(),5000);}
+let state={players:[],selectedId:null,nextId:1}, chaosMode=localStorage.getItem('eslChaos')==='1';
+const avatars=["#e53935","#1e88e5","#43a047","#fb8c00","#8e24aa","#00acc1","#f4511e","#3949ab"];
+const DEFAULT_NAMES=["Hoho","Chen","Yuki","Laura","Cici","Livi","Shino","Evan","Lucy"];
+const STATE_KEY='eslMasteryChaosV1';
+let timerInterval=null;
+function defaultRoster(){return DEFAULT_NAMES.map((n,i)=>({id:i+1,name:n,score:0,color:avatars[i%avatars.length]}));}
+function resetRoster(){if(confirm('Reset roster?')){state.players=defaultRoster();state.selectedId=null;state.nextId=DEFAULT_NAMES.length+1;saveState();renderPlayers();showToast('Roster reset','info');}}
+function getPlayer(id){return state.players.find(p=>p.id===id);} function normalizeAll(){state.players.forEach(p=>p.score=Math.max(0,Math.round(p.score)));}
+function randomOther(pid){const o=state.players.filter(p=>p.id!==pid);return o.length?o[Math.floor(Math.random()*o.length)]:null;}
+function highestOther(pid){const o=state.players.filter(p=>p.id!==pid&&p.score>0);if(!o.length)return null;return o.reduce((a,b)=>b.score>a.score?b:a);}
+function stealPoints(thiefId,victimId,amount){const t=getPlayer(thiefId),v=getPlayer(victimId);if(!t||!v)return 0;amount=Math.max(0,Math.min(Math.round(amount),v.score));if(amount<=0)return 0;v.score-=amount;t.score+=amount;normalizeAll();saveState();renderPlayers();return amount;}
+function executeChaosEvent(pid,ev,doToast=true){const p=getPlayer(pid);if(!p)return '';let msg='';const others=state.players.filter(x=>x.id!==pid);
+if(ev.t==='points'){p.score=Math.max(0,p.score+ev.v);msg=`${ev.v>=0?'🎉':'💥'} ${p.name}: ${ev.v>=0?'+':''}${ev.v}`;}
+else if(ev.t==='double'){p.score*=2;msg=`🌪️ DOUBLE! ${p.name} → ${p.score}`;}
+else if(ev.t==='triple'){p.score*=3;msg=`🌪️ TRIPLE! ${p.name} → ${p.score}`;}
+else if(ev.t==='half'){const loss=Math.floor(p.score/2);p.score-=loss;msg=`💸 ${p.name} loses half (${loss}).`;}
+else if(ev.t==='loseall'){p.score=0;msg=`💥 BUST! ${p.name} loses all points.`;}
+else if(ev.t==='steal'){const v=ev.victim||highestOther(pid);if(v){const amt=Math.max(5,Math.floor(v.score*(ev.pct||.25)));const got=stealPoints(pid,v.id,amt);msg=got?`🦹 ${p.name} steals ${got} from ${v.name}!`:`🦹 ${p.name} finds empty pockets.`;}else{p.score+=10;msg=`😿 No victims. Chaos pity +10 to ${p.name}.`;}}
+else if(ev.t==='robbed'){const r=ev.robber||randomOther(pid);if(r){const amt=Math.max(5,Math.floor(p.score*(ev.pct||.25)));const got=stealPoints(r.id,p.id,amt);msg=got?`🥷 ${p.name} is robbed by ${r.name} (-${got}).`:`🥷 ${p.name} has nothing to steal.`;}else{p.score=Math.max(0,p.score-10);msg=`👻 Ghost thief takes 10 from ${p.name}.`;}}
+normalizeAll();saveState();renderPlayers();if(ev.t==='points'&&ev.v>0||ev.t==='double'||ev.t==='triple'||ev.t==='steal'){winSound();if(p.score>=100)confetti();}else if(ev.t==='loseall'||ev.t==='half'||ev.t==='robbed'||ev.t==='points'&&ev.v<0){loseSound();}
+if(doToast)showToast(msg,'info');return msg;}
+const RANDOM_CHAOS=[{t:'double'},{t:'triple'},{t:'steal',pct:.25},{t:'robbed',pct:.25},{t:'half'},{t:'points',v:25},{t:'points',v:50},{t:'loseall'}];
+function triggerRandomChaos(pid){const ev=RANDOM_CHAOS[Math.floor(Math.random()*RANDOM_CHAOS.length)];executeChaosEvent(pid,ev,true);}
+function toggleChaos(){chaosMode=!chaosMode;localStorage.setItem('eslChaos',chaosMode?'1':'0');updateChaosUI();showToast(chaosMode?'🌪️ Chaos ON':'Chaos OFF','info');}
+function updateChaosUI(){const b=$('chaosBtn'),c=$('chaosCtrl');if(b){b.textContent=chaosMode?'ON':'OFF';b.style.background=chaosMode?'#f72585':'#78909c';}if(c)c.style.background=chaosMode?'#f72585':'#78909c';}
+const DEFAULT_GAME_CONFIG={
+wheel:{name:'Wheel of Fortune',icon:'🎡',values:[5,10,15,20,25,-5,50,100]},dice:{name:'Roll the Dice',icon:'🎲',values:[5,10,15,20,25,50]},stopper:{name:'Stopper',icon:'⏱️',zones:[100,50,25,10]},mystery:{name:'Mystery Box',icon:'🎁',values:[5,10,15,20,25,-5,50,100,0,75]},cards:{name:'Pick a Card',icon:'🃏',values:[5,10,15,20,25,30,40,50]},slots:{name:'Slot Machine',icon:'🎰',values:[5,10,15,20,25,50],jackpot:100},bottle:{name:'Bottle Spinner',icon:'🍾',values:[5,10,15,20,25,30,40,50,60,70,80,100]},lucky:{name:'Lucky Number',icon:'🔢',values:[5,10,15,20,25,30,40,50,60,75,90,100]},treasure:{name:'Treasure Hunt',icon:'💎',gems:[10,20,30,40,50,60,80],bombs:2},darts:{name:'Dart Board',icon:'🎯',values:[100,50,30,20,10]},coin:{name:'Coin Flip',icon:'🪙',win:50,lose:10},balloons:{name:'Balloon Pop',icon:'🎈',values:[5,10,15,20,25,30,40,50,60,75,100,-5]},mole:{name:'Whack-a-Mole',icon:'🐹',values:[5,10,15,20,25],duration:20},higher:{name:'Higher or Lower',icon:'🂡',values:[10,15,20,25,30,40,50]},reaction:{name:'Reaction Tap',icon:'⚡',zones:[100,50,25,10]},memory:{name:'Memory Pairs',icon:'🧠',values:[50,40,30,20,10]},chaoswheel:{name:'Chaos Wheel',icon:'🌪️'},heist:{name:'Heist',icon:'🦹'},double:{name:'Double or Nothing',icon:'💰'},robbery:{name:'Robbery Roulette',icon:'🥷'},thief:{name:'Point Thief',icon:'🎒'}};
+let gameConfig;try{gameConfig=JSON.parse(localStorage.getItem('eslGameConfigV3'));}catch(e){gameConfig=null;}if(!gameConfig)gameConfig=JSON.parse(JSON.stringify(DEFAULT_GAME_CONFIG));for(const k of Object.keys(DEFAULT_GAME_CONFIG)){if(!gameConfig[k])gameConfig[k]=JSON.parse(JSON.stringify(DEFAULT_GAME_CONFIG[k]));}
+const GRADS={wheel:'linear-gradient(135deg,#667eea,#764ba2)',dice:'linear-gradient(135deg,#f093fb,#f5576c)',stopper:'linear-gradient(135deg,#4facfe,#00f2fe)',mystery:'linear-gradient(135deg,#fa709a,#fee140)',cards:'linear-gradient(135deg,#30cfd0,#330867)',slots:'linear-gradient(135deg,#f83600,#f9d423)',bottle:'linear-gradient(135deg,#11998e,#38ef7d)',lucky:'linear-gradient(135deg,#f6d365,#fda085)',treasure:'linear-gradient(135deg,#0ba360,#3cba92)',darts:'linear-gradient(135deg,#ff0844,#ffb199)',coin:'linear-gradient(135deg,#f7971e,#ffd200)',balloons:'linear-gradient(135deg,#89f7fe,#66a6ff)',mole:'linear-gradient(135deg,#56ab2f,#a8e063)',higher:'linear-gradient(135deg,#654ea3,#eaafc8)',reaction:'linear-gradient(135deg,#232526,#414345)',memory:'linear-gradient(135deg,#fc466b,#3f5efb)',chaoswheel:'linear-gradient(135deg,#f72585,#7209b7)',heist:'linear-gradient(135deg,#212529,#495057)',double:'linear-gradient(135deg,#ffba08,#faa307)',robbery:'linear-gradient(135deg,#9d0208,#dc2f02)',thief:'linear-gradient(135deg,#38b000,#70e000)'};
+let loopHandles=[],rafId=null,currentGameKey=null,wheelRot=0,bottleRot=0,chaosWheelRot=0,actionToken=0,lastTap=0;
+function bumpToken(){actionToken++;} function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function clearLoops(){loopHandles.forEach(h=>{clearTimeout(h);clearInterval(h);});loopHandles=[];if(rafId){cancelAnimationFrame(rafId);rafId=null;}}
+function buildGamesGrid(){$('gamesGrid').innerHTML=Object.keys(gameConfig).map(k=>`<button class="game-btn" onclick="openGame('${k}')"><span>${gameConfig[k].icon}</span>${gameConfig[k].name}</button>`).join('');}
+function goHeader(key){const c=gameConfig[key],p=getPlayer(state.selectedId);return `<div class="go-header"><div class="go-title">${c.icon} ${c.name}</div><div style="display:flex;align-items:center"><div class="go-player">🎮 ${p?p.name:''}</div><button class="go-iconbtn" data-tap="openGameSettings()">⚙️</button><button class="go-iconbtn" data-tap="closeGame()">✕</button></div></div>`;}
+function openGame(key){if(state.selectedId===null){showToast('⚠️ Select a player first!','error');return;}bumpToken();currentGameKey=key;clearLoops();const ov=$('gameOverlay');ov.style.background=GRADS[key];ov.innerHTML=goHeader(key)+`<div class="go-body" id="goBody"></div>`;ov.classList.add('visible');RENDERERS[key]();}
+function closeGame(){bumpToken();clearLoops();$('gameOverlay').classList.remove('visible');}
+function playAgain(){bumpToken();clearLoops();window._heistMsg='';window._doubleMsg='';window._robMsg='';window._thiefMsg='';RENDERERS[currentGameKey]();}
+function setGoResult(html){const r=$('goResult');if(r)r.innerHTML=html+'<br><button class="go-btn" style="font-size:1rem;padding:10px 22px;margin-top:8px" data-tap="playAgain()">🔄 Play Again</button>';}
+function showResult(pts,msg){const p=getPlayer(state.selectedId);if(!p)return;p.score=Math.max(0,p.score+pts);normalizeAll();saveState();renderPlayers();if(pts>0){winSound();if(pts>=40)confetti();}else if(pts<0)loseSound();setGoResult(`${msg||''} <span style="color:${pts>=0?'#d4ff00':'#ff5c5c'}">${pts>=0?'+':''}${pts}</span> to ${p.name}!`);showToast(`${pts>=0?'+':''}${pts} to ${p.name}!`,pts>=0?'success':'error');if(chaosMode&&pts>0&&Math.random()<0.35)setTimeout(()=>triggerRandomChaos(p.id),800);}
+function runTap(t){const fn=t.getAttribute('data-tap');if(!fn)return;try{(0,eval)(fn);}catch(err){console.error(err);}}
+function tapHandler(e){const t=e.target.closest?e.target.closest('[data-tap]'):null;if(!t)return;if(e.pointerType==='mouse'&&e.button!==0)return;e.preventDefault();lastTap=Date.now();runTap(t);}
+(function(){const ov=$('gameOverlay');if(window.PointerEvent)ov.addEventListener('pointerdown',tapHandler,{passive:false});else ov.addEventListener('click',tapHandler);ov.addEventListener('click',e=>{if(e.detail===0&&Date.now()-lastTap>400){const t=e.target.closest?e.target.closest('[data-tap]'):null;if(t)runTap(t);}});ov.addEventListener('contextmenu',e=>e.preventDefault());ov.addEventListener('dblclick',e=>e.preventDefault());})();
+function animateSpin(el,from,to,dur,onTick,onDone){const t0=performance.now();const ease=t=>1-Math.pow(1-t,4);function frame(now){const p=Math.min(1,(now-t0)/dur);const ang=from+(to-from)*ease(p);el.style.transform=`rotate(${ang}deg)`;if(onTick)onTick(ang);if(p<1)rafId=requestAnimationFrame(frame);else{rafId=null;if(onDone)onDone();}}rafId=requestAnimationFrame(frame);}
+function renderWheel(){const vals=gameConfig.wheel.values,n=vals.length,a=360/n,cols=['#ef4444','#f97316','#eab308','#84cc16','#22c55e','#0ea5e9','#8b5cf6','#ec4899','#14b8a6','#f43f5e','#a3e635','#fb7185'];let segs='',labels='';for(let i=0;i<n;i++){const s0=(i*a-90)*Math.PI/180,s1=((i+1)*a-90)*Math.PI/180,x0=100+98*Math.cos(s0),y0=100+98*Math.sin(s0),x1=100+98*Math.cos(s1),y1=100+98*Math.sin(s1),large=a>180?1:0;segs+=`<path id="wseg${i}" d="M100,100 L${x0.toFixed(2)},${y0.toFixed(2)} A98,98 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${cols[i%cols.length]}" stroke="#fff" stroke-width="1.5"/>`;const m=(i*a+a/2-90)*Math.PI/180,lx=100+66*Math.cos(m),ly=100+66*Math.sin(m);labels+=`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" transform="rotate(${i*a+a/2} ${lx.toFixed(1)} ${ly.toFixed(1)})" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="${n>10?7:9}" font-weight="800" stroke="rgba(0,0,0,.4)" stroke-width="1.6" style="paint-order:stroke">${vals[i]>=0?'+':''}${vals[i]}</text>`;}$('goBody').innerHTML=`<div class="go-wheelwrap"><svg viewBox="0 0 34 30" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:34px;height:30px;z-index:6"><polygon points="5,0 29,0 17,26" fill="#e63946" stroke="#fff" stroke-width="2"/></svg><svg viewBox="0 0 200 200" style="width:100%;height:100%"><g id="goWheelG" style="transform-origin:100px 100px">${segs}${labels}</g><circle cx="100" cy="100" r="15" fill="#fff"/><text x="100" y="101" text-anchor="middle" dominant-baseline="central" font-size="13">🎯</text></svg></div><button class="go-btn" id="goSpin" data-tap="spinWheelGame()">🎡 SPIN!</button><div class="go-result" id="goResult"></div>`;const g=$('goWheelG');if(g)g.style.transform=`rotate(${wheelRot}deg)`;}
+function spinWheelGame(){const btn=$('goSpin');if(!btn||btn.disabled)return;btn.disabled=true;const g=$('goWheelG');if(!g)return;const vals=gameConfig.wheel.values,n=vals.length,a=360/n,idx=Math.floor(Math.random()*n),targetMod=(360-(idx*a+a/2))%360,from=wheelRot,to=from-(from%360)+360*(5+Math.floor(Math.random()*3))+targetMod;wheelRot=to;const tk=actionToken;let lastSeg=-1;beep(400,.08);animateSpin(g,from,to,4200,ang=>{const seg=Math.floor(((360-ang%360)%360)/a);if(seg!==lastSeg){lastSeg=seg;tick();}},()=>{if(tk!==actionToken)return;const el=$('wseg'+idx);if(el){el.setAttribute('stroke','#ffd700');el.setAttribute('stroke-width','5');}showResult(vals[idx],`🎡 Landed on ${vals[idx]}!`);const b2=$('goSpin');if(b2)b2.disabled=false;});}
+function renderDice(){$('goBody').innerHTML=`<div class="go-die" id="goDie">🎲</div><button class="go-btn" id="goRoll" data-tap="rollDice()">🎲 ROLL!</button><div class="go-result" id="goResult"></div>`;}
+function rollDice(){const btn=$('goRoll');if(!btn||btn.disabled)return;btn.disabled=true;const tk=actionToken,die=$('goDie'),vals=gameConfig.dice.values;die.classList.add('rolling');const h=setInterval(()=>{if(tk!==actionToken){clearInterval(h);return;}die.textContent=vals[Math.floor(Math.random()*vals.length)];tick();},90);loopHandles.push(h);setTimeout(()=>{if(tk!==actionToken)return;clearInterval(h);die.classList.remove('rolling');const v=vals[Math.floor(Math.random()*vals.length)];die.textContent=v;showResult(v,`🎲 Rolled ${v}!`);const b2=$('goRoll');if(b2)b2.disabled=false;},1200);}
+function renderStopper(){const z=gameConfig.stopper.zones,layout=[{p:z[3],w:25,c:'#64748b',l:'OK'},{p:z[2],w:15,c:'#0ea5e9',l:'GOOD'},{p:z[1],w:7,c:'#22c55e',l:'GREAT'},{p:z[0],w:6,c:'#f59e0b',l:'JACKPOT'},{p:z[1],w:7,c:'#22c55e',l:'GREAT'},{p:z[2],w:15,c:'#0ea5e9',l:'GOOD'},{p:z[3],w:25,c:'#64748b',l:'OK'}];window._stopLayout=layout;window._stopPos=0;$('goBody').innerHTML=`<h2 style="margin-bottom:14px">Stop in JACKPOT!</h2><div class="go-track">${layout.map(s=>`<div class="go-zone" style="width:${s.w}%;background:${s.c}">${s.l}<span>${s.p}</span></div>`).join('')}<div class="go-marker" id="goMarker" style="left:0%"></div></div><button class="go-btn" id="goStop" data-tap="stopStopper()">🛑 STOP!</button><div class="go-result" id="goResult"></div>`;const t0=performance.now(),marker=$('goMarker');function frame(t){const el=t-t0,ph=(el%1600)/1600,p=ph<.5?ph*2:(1-ph)*2;window._stopPos=p*100;if(marker)marker.style.left=window._stopPos+'%';rafId=requestAnimationFrame(frame);}rafId=requestAnimationFrame(frame);}
+function stopStopper(){if(rafId){cancelAnimationFrame(rafId);rafId=null;}const pos=window._stopPos||0;let acc=0,pts=0,label='';for(const s of window._stopLayout){acc+=s.w;if(pos<=acc){pts=s.p;label=s.l;break;}}const b=$('goStop');if(b)b.disabled=true;showResult(pts,`⏱️ ${label}!`);}
+function renderMystery(){const vals=shuffle([...gameConfig.mystery.values]);window._myst=vals;window._mystOver=false;$('goBody').innerHTML=`<h2 style="margin-bottom:14px">Pick a mystery box!</h2><div class="go-boxes">${vals.map((v,i)=>`<div class="go-box" id="mbox${i}" data-tap="openMystery(${i})">🎁</div>`).join('')}</div><div class="go-result" id="goResult"></div>`;}
+function openMystery(i){if(window._mystOver)return;window._mystOver=true;const tk=actionToken,el=$('mbox'+i);if(!el)return;el.classList.add('shake');beep(300,.1);setTimeout(()=>{if(tk!==actionToken)return;el.classList.add('opened');const v=window._myst[i];el.innerHTML=`<span style="font-size:1.55rem;font-weight:800">${v>=0?'+':''}${v}</span>`;el.style.background=v>=0?'rgba(34,197,94,.85)':'rgba(239,68,68,.85)';showResult(v,`🎁 Box held ${v}!`);},500);}
+function renderCards(){const vals=shuffle([...gameConfig.cards.values]);window._cards=vals;window._cardsOver=false;$('goBody').innerHTML=`<h2 style="margin-bottom:14px">Pick a card!</h2><div class="go-cards">${vals.map((v,i)=>`<div class="go-card" id="card${i}" data-tap="flipCard(${i})"><div class="go-cardinner"><div class="go-cface go-cback">🃏</div><div class="go-cface go-cfront">${v>=0?'+':''}${v}</div></div></div>`).join('')}</div><div class="go-result" id="goResult"></div>`;}
+function flipCard(i){if(window._cardsOver)return;window._cardsOver=true;const tk=actionToken,el=$('card'+i);if(!el)return;el.classList.add('flipped');beep(500,.08);setTimeout(()=>{if(tk!==actionToken)return;showResult(window._cards[i],`🃏 You picked ${window._cards[i]}!`);},650);}
+function renderSlots(){$('goBody').innerHTML=`<h2>Match values!</h2><p style="margin-bottom:14px">3 match = JACKPOT (${gameConfig.slots.jackpot}) • 2 match = value • no match = 0</p><div class="go-slots"><div class="go-reel" id="reel0">?</div><div class="go-reel" id="reel1">?</div><div class="go-reel" id="reel2">?</div></div><button class="go-btn" id="goSpinSlots" data-tap="spinSlots()">🎰 SPIN!</button><div class="go-result" id="goResult"></div>`;}
+function spinSlots(){const btn=$('goSpinSlots');if(!btn||btn.disabled)return;btn.disabled=true;const tk=actionToken,vals=gameConfig.slots.values,res=[0,1,2].map(()=>vals[Math.floor(Math.random()*vals.length)]),reels=[0,1,2].map(i=>$('reel'+i));reels.forEach(r=>{if(r)r.classList.add('spinning');});const cycles=[null,null,null];reels.forEach((r,i)=>{const h=setInterval(()=>{if(tk!==actionToken){clearInterval(h);return;}if(r){r.textContent=vals[Math.floor(Math.random()*vals.length)];tick();}},80);cycles[i]=h;loopHandles.push(h);});[700,1200,1700].forEach((t,i)=>setTimeout(()=>{clearInterval(cycles[i]);if(tk!==actionToken)return;const r=$('reel'+i);if(!r)return;r.classList.remove('spinning');r.textContent=res[i];beep(300+i*150,.1);if(i===2){let pts=0,msg='';if(res[0]===res[1]&&res[1]===res[2]){pts=gameConfig.slots.jackpot;msg='🎰 JACKPOT!';}else if(res[0]===res[1]||res[0]===res[2]||res[1]===res[2]){pts=res[0]===res[1]?res[0]:(res[0]===res[2]?res[0]:res[1]);msg='🎰 Two match!';}else{pts=0;msg='🎰 No match...';}showResult(pts,msg);const b2=$('goSpinSlots');if(b2)b2.disabled=false;}},t));}
+function renderBottle(){const vals=gameConfig.bottle.values,n=vals.length,a=360/n;let labels='';for(let i=0;i<n;i++){const m=i*a+a/2,rad=(m-90)*Math.PI/180,x=100+80*Math.cos(rad),y=100+80*Math.sin(rad);labels+=`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" transform="rotate(${m} ${x.toFixed(1)} ${y.toFixed(1)})" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="${n>10?7:9}" font-weight="800" stroke="rgba(0,0,0,.45)" stroke-width="1.6" style="paint-order:stroke">${vals[i]>=0?'+':''}${vals[i]}</text>`;}$('goBody').innerHTML=`<div class="go-wheelwrap"><svg viewBox="0 0 200 200" style="width:100%;height:100%"><circle cx="100" cy="100" r="96" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.5)" stroke-width="3"/>${labels}<g id="goBottleG" style="transform-origin:100px 100px"><path d="M95 26 h10 v12 c0 5 12 9 12 20 v66 c0 9 -7 14 -17 14 s-17 -5 -17 -14 v-66 c0 -11 12 -15 12 -20 z" fill="#1b4332" stroke="#fff" stroke-width="2"/><rect x="93" y="15" width="14" height="12" rx="3" fill="#d4a373" stroke="#fff" stroke-width="1.5"/><ellipse cx="94" cy="88" rx="4" ry="32" fill="rgba(255,255,255,.22)"/></g><circle cx="100" cy="100" r="11" fill="#fff"/></svg></div><button class="go-btn" id="goSpinB" data-tap="spinBottle()">🍾 SPIN!</button><div class="go-result" id="goResult"></div>`;const g=$('goBottleG');if(g)g.style.transform=`rotate(${bottleRot}deg)`;}
+function spinBottle(){const btn=$('goSpinB');if(!btn||btn.disabled)return;btn.disabled=true;const g=$('goBottleG');if(!g)return;const vals=gameConfig.bottle.values,n=vals.length,a=360/n,idx=Math.floor(Math.random()*n),target=idx*a+a/2,from=bottleRot,to=from-(from%360)+360*(4+Math.floor(Math.random()*3))+(((target-(from%360))%360)+360)%360;bottleRot=to;const tk=actionToken;let last=-1;beep(400,.08);animateSpin(g,from,to,3400,ang=>{const seg=Math.floor((((ang%360)+360)%360)/a);if(seg!==last){last=seg;tick();}},()=>{if(tk!==actionToken)return;showResult(vals[idx],`🍾 Bottle points to ${vals[idx]}!`);const b2=$('goSpinB');if(b2)b2.disabled=false;});}
+function renderLucky(){const vals=shuffle([...gameConfig.lucky.values]);window._lucky=vals;window._luckyOver=false;$('goBody').innerHTML=`<h2 style="margin-bottom:14px">Choose lucky number!</h2><div class="go-balls">${vals.map((v,i)=>`<div class="go-ball" id="ball${i}" style="animation-delay:${(i%5)*0.15}s" data-tap="pickBall(${i})">${i+1}</div>`).join('')}</div><div class="go-result" id="goResult"></div>`;}
+function pickBall(i){if(window._luckyOver)return;window._luckyOver=true;const tk=actionToken,el=$('ball'+i);if(!el)return;el.classList.add('revealed');el.textContent=(window._lucky[i]>=0?'+':'')+window._lucky[i];beep(600,.08);setTimeout(()=>{if(tk!==actionToken)return;showResult(window._lucky[i],`🔢 Number ${i+1} held ${window._lucky[i]}!`);},400);}
+function renderTreasure(){const g=gameConfig.treasure,tiles=shuffle([...g.gems.map(v=>({t:'g',v})),...Array(g.bombs).fill().map(()=>({t:'b',v:0}))]);window._tr={tiles,pot:0,over:false,opened:0};$('goBody').innerHTML=`<h2>Open chests!</h2><p>💎 add to pot • 💣 loses all • Bank anytime</p><div style="font-size:1.5rem;font-weight:800;margin-bottom:12px">Pot: <span id="trPot">0</span></div><div class="go-tiles">${tiles.map((t,i)=>`<div class="go-tile" id="tile${i}" data-tap="openTile(${i})">❓</div>`).join('')}</div><button class="go-btn" id="trBank" data-tap="bankTreasure(false)" disabled>💰 BANK</button><div class="go-result" id="goResult"></div>`;}
+function openTile(i){const tr=window._tr;if(!tr||tr.over)return;const el=$('tile'+i);if(!el||el.classList.contains('open'))return;el.classList.add('open');const t=tr.tiles[i];if(t.t==='g'){tr.pot+=t.v;tr.opened++;el.classList.add('gem');el.innerHTML=`💎<span style="font-size:1.05rem">+${t.v}</span>`;beep(700+tr.opened*80,.09);const potEl=$('trPot');if(potEl)potEl.textContent=tr.pot;const bank=$('trBank');if(bank)bank.disabled=false;if(tr.tiles.filter(x=>x.t==='g').length-tr.opened<=0)bankTreasure(true);}else{tr.over=true;el.classList.add('bomb');el.innerHTML='💣';showResult(0,'💥 BOOM! Pot lost...');}}
+function bankTreasure(auto){const tr=window._tr;if(!tr||tr.over)return;tr.over=true;showResult(tr.pot,auto?'💎 All treasures found!':'💰 Pot banked!');}
+function renderDarts(){const vals=gameConfig.darts.values,n=vals.length,cols=['#ef4444','#f97316','#eab308','#22c55e','#0ea5e9','#8b5cf6'];let rings='';for(let i=0;i<n;i++){const size=100-i*(80/(n-1||1));rings+=`<div class="go-ring" style="inset:${(100-size)/2}%;background:${cols[i%cols.length]}"><span style="position:absolute;top:3%;left:50%;transform:translateX(-50%);font-size:clamp(.7rem,2.2vmin,1rem)">${vals[i]}</span></div>`;}$('goBody').innerHTML=`<div class="go-dartboard" id="goBoard">${rings}<div class="go-dart" id="goDart">📌</div></div><button class="go-btn" id="goThrow" data-tap="throwDart()">🎯 THROW!</button><div class="go-result" id="goResult"></div>`;}
+function throwDart(){const btn=$('goThrow');if(!btn||btn.disabled)return;btn.disabled=true;const tk=actionToken,vals=gameConfig.darts.values,n=vals.length,idx=Math.floor(Math.random()*n),board=$('goBoard');if(!board)return;const W=board.clientWidth,sizeOuter=100-idx*(80/(n-1||1)),sizeInner=idx+1<n?100-(idx+1)*(80/(n-1||1)):0,midR=((sizeOuter+sizeInner)/2/100*W)/2,ang=Math.random()*Math.PI*2,x=W/2+Math.cos(ang)*midR,y=W/2+Math.sin(ang)*midR,dart=$('goDart');beep(900,.06);if(dart){dart.style.left=x+'px';dart.style.top=y+'px';}setTimeout(()=>{if(tk!==actionToken)return;beep(200,.12,'square',.1);showResult(vals[idx],`🎯 Hit ${vals[idx]} ring!`);const b2=$('goThrow');if(b2)b2.disabled=false;},650);}
+function renderCoin(){window._coinOver=false;$('goBody').innerHTML=`<div class="go-coin" id="goCoin">🪙</div><h2>Call it!</h2><div><button class="go-btn" data-tap="flipCoin('H')">👑 HEADS</button><button class="go-btn" data-tap="flipCoin('T')">🌿 TAILS</button></div><p>Correct +${gameConfig.coin.win} • Wrong +${gameConfig.coin.lose}</p><div class="go-result" id="goResult"></div>`;}
+function flipCoin(call){if(window._coinOver)return;window._coinOver=true;const tk=actionToken,coin=$('goCoin');if(!coin)return;coin.classList.add('flipping');beep(1000,.05);setTimeout(()=>beep(1200,.05),200);const res=Math.random()<.5?'H':'T';setTimeout(()=>{if(tk!==actionToken)return;coin.classList.remove('flipping');coin.textContent=res==='H'?'👑':'🌿';const ok=call===res,pts=ok?gameConfig.coin.win:gameConfig.coin.lose;showResult(pts,`${res==='H'?'HEADS':'TAILS'}! ${ok?'✅ Correct':'❌ Wrong'}`);},1450);}
+function renderBalloons(){const vals=shuffle([...gameConfig.balloons.values]);window._bal=vals;window._balOver=false;const hues=['hue-rotate(0deg)','hue-rotate(90deg)','hue-rotate(180deg)','hue-rotate(270deg)'];$('goBody').innerHTML=`<h2>Pop a balloon!</h2><div class="go-balloonarea">${vals.map((v,i)=>`<button class="go-balloon" id="bal${i}" style="left:${4+i*(88/vals.length)+Math.random()*4}%;animation-duration:${7+Math.random()*6}s;animation-delay:${-Math.random()*10}s;filter:${hues[i%4]}" data-tap="popBalloon(${i})">🎈</button>`).join('')}</div><div class="go-result" id="goResult"></div>`;}
+function popBalloon(i){if(window._balOver)return;window._balOver=true;const tk=actionToken,el=$('bal'+i);if(!el)return;$$('.go-balloon').forEach(b=>b.style.animationPlayState='paused');el.classList.add('popped');el.textContent='💥';beep(150,.15,'square',.12);setTimeout(()=>{if(tk!==actionToken)return;el.textContent=`💥 ${window._bal[i]>=0?'+':''}${window._bal[i]}`;showResult(window._bal[i],`🎈 Popped ${window._bal[i]}!`);},300);}
+function renderMole(){const g=gameConfig.mole;window._mole={pot:0,left:g.duration,running:false};$('goBody').innerHTML=`<h2>🐹 Whack-a-Mole!</h2><p>Tap 🐹 • avoid 💣 • ${g.duration}s</p><div style="font-size:1.3rem;font-weight:800;margin-bottom:10px">⏳ <span id="moleTime">${g.duration}</span>s • Pot: <span id="molePot">0</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:min(86vw,440px)">${Array(9).fill(0).map((_,i)=>`<div class="mole-hole" id="hole${i}" data-tap="whack(${i})"><span class="mole-face" id="mole${i}"></span></div>`).join('')}</div><button class="go-btn" id="moleStart" data-tap="startMole()">▶ START</button><div class="go-result" id="goResult"></div>`;}
+function startMole(){const m=window._mole;if(!m||m.running)return;m.running=true;m.pot=0;m.left=gameConfig.mole.duration;const tk=actionToken,b=$('moleStart');if(b)b.disabled=true;beep(500,.1);const cnt=setInterval(()=>{if(tk!==actionToken){clearInterval(cnt);return;}m.left--;const t=$('moleTime');if(t)t.textContent=m.left;if(m.left<=0){clearInterval(cnt);endMole();}},1000);loopHandles.push(cnt);function spawn(){if(tk!==actionToken||!m.running)return;const i=Math.floor(Math.random()*9),hole=$('hole'+i),face=$('mole'+i);if(hole&&face&&!hole.classList.contains('up')){const vals=gameConfig.mole.values,v=vals[Math.floor(Math.random()*vals.length)],bomb=Math.random()<0.18;hole.dataset.v=String(bomb?-Math.abs(v):v);face.textContent=bomb?'💣':'🐹';hole.classList.add('up');const hide=setTimeout(()=>hole.classList.remove('up'),1050);loopHandles.push(hide);}const sp=setTimeout(spawn,480+Math.random()*520);loopHandles.push(sp);}spawn();}
+function whack(i){const m=window._mole;if(!m||!m.running)return;const hole=$('hole'+i);if(!hole||!hole.classList.contains('up'))return;hole.classList.remove('up');const v=parseInt(hole.dataset.v||'0',10);m.pot+=v;const pot=$('molePot');if(pot)pot.textContent=m.pot;if(v>=0)beep(700+Math.random()*400,.07,'square',.08);else loseSound();}
+function endMole(){const m=window._mole;if(!m||!m.running)return;m.running=false;$$('.mole-hole').forEach(h=>h.classList.remove('up'));const b=$('moleStart');if(b)b.disabled=false;showResult(m.pot,'🐹 Round over! Pot:');}
+function rand100(){return 1+Math.floor(Math.random()*100);} function renderHigher(){window._hl={cur:rand100(),pot:0,streak:0,over:false};paintHigher();}
+function paintHigher(){const h=window._hl;$('goBody').innerHTML=`<h2>🂡 Higher or Lower?</h2><div style="background:#fff;color:#333;border-radius:16px;padding:18px 40px;font-size:3rem;font-weight:900;margin:12px 0">${h.cur}</div><p>Pot: <strong>${h.pot}</strong> • Streak: <strong>${h.streak}</strong></p><div><button class="go-btn" data-tap="hlGuess('H')">⬆️ HIGHER</button><button class="go-btn" data-tap="hlGuess('L')">⬇️ LOWER</button><button class="go-btn" style="background:#ffd700" data-tap="hlBank()">💰 BANK ${h.pot}</button></div><div class="go-result" id="goResult"></div>`;}
+function hlGuess(dir){const h=window._hl;if(!h||h.over)return;let next=rand100();while(next===h.cur)next=rand100();const ok=dir==='H'?next>h.cur:next<h.cur;if(ok){h.streak++;const vals=gameConfig.higher.values,add=vals[Math.min(h.streak-1,vals.length-1)];h.pot+=add;h.cur=next;beep(500+h.streak*70,.09);paintHigher();}else{h.over=true;showResult(0,`💔 Wrong! It was ${next}. Pot lost:`);}}
+function hlBank(){const h=window._hl;if(!h||h.over||h.pot<=0)return;h.over=true;showResult(h.pot,'💰 Banked!');}
+function renderReaction(){window._react={state:'idle',t0:0,to:null};$('goBody').innerHTML=`<h2>⚡ Reaction Tap</h2><p>Wait for GREEN, then tap!</p><div id="reactBox" data-tap="reactTap()" style="width:min(82vw,540px);height:min(48vh,330px);border-radius:18px;background:#c0392b;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff">Press START…</div><button class="go-btn" id="reactStart" data-tap="reactStart()">▶ START</button><div class="go-result" id="goResult"></div>`;}
+function reactStart(){const r=window._react;if(!r||r.state==='waiting')return;clearTimeout(r.to);r.state='waiting';const box=$('reactBox');if(!box)return;box.style.background='#c0392b';box.innerHTML='Wait for GREEN…';beep(300,.1);r.to=setTimeout(()=>{if(!window._react)return;window._react.state='go';window._react.t0=performance.now();box.style.background='#2ecc71';box.innerHTML='TAP NOW! ⚡';beep(880,.12);},1000+Math.random()*3000);loopHandles.push(r.to);}
+function reactTap(){const r=window._react;if(!r)return;const box=$('reactBox');if(!box)return;if(r.state==='waiting'){clearTimeout(r.to);r.state='idle';box.style.background='#7f8c8d';box.innerHTML='Too early! 😅';showResult(-5,'⚡ Jumped the gun:');}else if(r.state==='go'){const ms=Math.round(performance.now()-r.t0);r.state='idle';const z=gameConfig.reaction.zones,pts=ms<250?z[0]:ms<350?z[1]:ms<500?z[2]:z[3];box.style.background='#34495e';box.innerHTML=`${ms} ms!`;showResult(pts,`⚡ ${ms}ms →`);}}
+function renderMemory(){const emo=['🦁','','🦊','','🦉',''],deck=shuffle([...emo,...emo]);window._mem={deck,open:[],matched:0,mistakes:0,lock:false};$('goBody').innerHTML=`<h2>🧠 Memory Pairs</h2><p>Match 6 animal pairs!</p><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:min(86vw,430px)">${deck.map((e,i)=>`<div class="mem-card" id="mem${i}" data-tap="memFlip(${i})"><span class="mem-face">❔</span></div>`).join('')}</div><div class="go-result" id="goResult"></div>`;}
+function memFlip(i){const m=window._mem;if(!m||m.lock)return;const el=$('mem'+i);if(!el||el.classList.contains('open')||el.classList.contains('done'))return;el.classList.add('open');const f=el.querySelector('.mem-face');if(f)f.textContent=m.deck[i];m.open.push(i);beep(520,.06);if(m.open.length===2){m.lock=true;const[a,b]=m.open;if(m.deck[a]===m.deck[b]){setTimeout(()=>{const ea=$('mem'+a),eb=$('mem'+b);if(ea)ea.classList.add('done');if(eb)eb.classList.add('done');m.matched++;m.open=[];m.lock=false;beep(820,.1);if(m.matched===6){const vals=gameConfig.memory.values,pts=vals[Math.min(m.mistakes,vals.length-1)];showResult(pts,`🧠 Done with ${m.mistakes} mistake(s)!`);}},350);}else{m.mistakes++;setTimeout(()=>{const ea=$('mem'+a),eb=$('mem'+b);[ea,eb].forEach(x=>{if(x){x.classList.remove('open');const ff=x.querySelector('.mem-face');if(ff)ff.textContent='❔';}});m.open=[];m.lock=false;beep(220,.12);},700);}}}
+const CHAOS_EVENTS=[{t:'points',v:50,label:'+50'},{t:'points',v:100,label:'+100'},{t:'double',label:'DOUBLE'},{t:'triple',label:'TRIPLE'},{t:'steal',pct:.25,label:'STEAL'},{t:'steal',pct:.5,label:'STEAL BIG'},{t:'robbed',pct:.25,label:'ROBBED'},{t:'half',label:'LOSE HALF'},{t:'loseall',label:'BUST'},{t:'points',v:25,label:'+25'}];
+function renderChaosWheel(){const evs=CHAOS_EVENTS,n=evs.length,a=360/n,cols=['#f72585','#7209b7','#3a0ca3','#4361ee','#4cc9f0','#f72585','#ff006e','#8338ec','#3a86ff','#fb5607'];let segs='',labels='';for(let i=0;i<n;i++){const s0=(i*a-90)*Math.PI/180,s1=((i+1)*a-90)*Math.PI/180,x0=100+98*Math.cos(s0),y0=100+98*Math.sin(s0),x1=100+98*Math.cos(s1),y1=100+98*Math.sin(s1);segs+=`<path d="M100,100 L${x0.toFixed(2)},${y0.toFixed(2)} A98,98 0 0 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${cols[i%cols.length]}" stroke="#fff" stroke-width="1.5"/>`;const m=(i*a+a/2-90)*Math.PI/180,lx=100+66*Math.cos(m),ly=100+66*Math.sin(m);labels+=`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" transform="rotate(${i*a+a/2} ${lx.toFixed(1)} ${ly.toFixed(1)})" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="8" font-weight="900" stroke="rgba(0,0,0,.45)" stroke-width="1.6" style="paint-order:stroke">${evs[i].label}</text>`;}$('goBody').innerHTML=`<div class="go-wheelwrap"><svg viewBox="0 0 34 30" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:34px;height:30px;z-index:6"><polygon points="5,0 29,0 17,26" fill="#fff" stroke="#000" stroke-width="2"/></svg><svg viewBox="0 0 200 200" style="width:100%;height:100%"><g id="goChaosG" style="transform-origin:100px 100px">${segs}${labels}</g><circle cx="100" cy="100" r="15" fill="#fff"/><text x="100" y="101" text-anchor="middle" dominant-baseline="central" font-size="13">🌪️</text></svg></div><button class="go-btn" id="goChaosSpin" data-tap="spinChaosWheel()">🌪️ SPIN CHAOS!</button><div class="go-result" id="goResult"></div>`;const g=$('goChaosG');if(g)g.style.transform=`rotate(${chaosWheelRot}deg)`;}
+function spinChaosWheel(){const btn=$('goChaosSpin');if(!btn||btn.disabled)return;btn.disabled=true;const g=$('goChaosG');if(!g)return;const n=CHAOS_EVENTS.length,a=360/n,idx=Math.floor(Math.random()*n),targetMod=(360-(idx*a+a/2))%360,from=chaosWheelRot,to=from-(from%360)+360*(5+Math.floor(Math.random()*3))+targetMod;chaosWheelRot=to;const tk=actionToken;let last=-1;beep(400,.08);animateSpin(g,from,to,4200,ang=>{const seg=Math.floor(((360-ang%360)%360)/a);if(seg!==last){last=seg;tick();}},()=>{if(tk!==actionToken)return;const msg=executeChaosEvent(state.selectedId,CHAOS_EVENTS[idx],false);setGoResult('🌪️ '+msg);const b2=$('goChaosSpin');if(b2)b2.disabled=false;});}
+function renderHeist(){const others=state.players.filter(p=>p.id!==state.selectedId);if(!others.length){$('goBody').innerHTML='<h2>Need 2+ players</h2><div class="go-result" id="goResult"></div>';return;}if(!window._heistTarget||!others.find(o=>o.id===window._heistTarget))window._heistTarget=others[0].id;const target=getPlayer(window._heistTarget);$('goBody').innerHTML=`<h2>🦹 Choose target</h2><div>${others.map(o=>`<button class="target-btn ${o.id===window._heistTarget?'active':''}" data-tap="setHeistTarget(${o.id})">${o.name} (${o.score})</button>`).join('')}</div><h3 style="margin-top:14px">Risk level</h3><button class="risk-btn sneaky" data-tap="doHeist('sneaky')">🤫 Sneaky 75%</button><button class="risk-btn bold" data-tap="doHeist('bold')">😎 Bold 50%</button><button class="risk-btn reckless" data-tap="doHeist('reckless')">🤪 Reckless 30%</button><p style="margin-top:10px;font-size:.9rem">Sneaky steals small. Bold steals medium. Reckless steals big but fails badly.</p><div class="go-result" id="goResult">${window._heistMsg||''}</div>`;}
+function setHeistTarget(id){window._heistTarget=id;renderHeist();}
+function doHeist(level){const thief=getPlayer(state.selectedId),victim=getPlayer(window._heistTarget);if(!thief||!victim)return;if(victim.score<=0){window._heistMsg='🕳️ Target has no points!';renderHeist();return;}let prob,minA,maxA,failLoss;if(level==='sneaky'){prob=.75;minA=5;maxA=20;failLoss=5;}else if(level==='bold'){prob=.5;minA=20;maxA=50;failLoss=25;}else{prob=.3;minA=50;maxA=150;failLoss=Math.floor(thief.score*.5);}if(Math.random()<prob){let amt=minA+Math.floor(Math.random()*(maxA-minA+1));const got=stealPoints(thief.id,victim.id,amt);window._heistMsg=`✅ ${level.toUpperCase()} heist success! Stole ${got} from ${victim.name}.`;winSound();if(got>=50)confetti();}else{const loss=Math.min(thief.score,failLoss);thief.score-=loss;normalizeAll();saveState();renderPlayers();window._heistMsg=`🚨 ${level.toUpperCase()} heist failed! Lost ${loss}.`;loseSound();if(chaosMode&&Math.random()<.45)setTimeout(()=>triggerRandomChaos(thief.id),700);}renderHeist();}
+function renderDouble(){const p=getPlayer(state.selectedId);$('goBody').innerHTML=`<h2>💰 Double or Nothing</h2><div style="font-size:1.4rem;font-weight:900;margin:10px">Your points: ${p.score}</div><input type="number" id="betInput" value="10" min="1" style="width:120px;text-align:center"><div><button class="go-btn" data-tap="flipDouble(10)">Bet 10</button><button class="go-btn" data-tap="flipDouble(25)">Bet 25</button><button class="go-btn" data-tap="flipDouble(50)">Bet 50</button><button class="go-btn" data-tap="flipDoubleCustom()">Bet Custom</button><button class="go-btn" style="background:#ffd700" data-tap="flipDouble(${p.score})">ALL IN</button></div><p>Heads = win bet. Tails = lose bet.</p><div class="go-result" id="goResult">${window._doubleMsg||''}</div>`;}
+function flipDoubleCustom(){const v=parseInt($('betInput').value,10)||10;flipDouble(v);}
+function flipDouble(bet){const p=getPlayer(state.selectedId);if(!p)return;bet=Math.max(1,Math.min(Math.round(bet),p.score));if(bet<=0){window._doubleMsg='No points to bet!';renderDouble();return;}const win=Math.random()<.5;if(win){p.score+=bet;window._doubleMsg=`👑 WIN! +${bet}`;winSound();if(bet>=50)confetti();}else{p.score-=bet;window._doubleMsg=`🌿 LOSE! -${bet}`;loseSound();}normalizeAll();saveState();renderPlayers();if(chaosMode&&Math.random()<.35)setTimeout(()=>triggerRandomChaos(p.id),700);renderDouble();}
+function renderRobbery(){const p=getPlayer(state.selectedId);$('goBody').innerHTML=`<h2>🥷 Robbery Roulette</h2><div style="font-size:4rem;margin:10px">🦹♂️</div><p>A chaos mugger demands points!</p><button class="go-btn" data-tap="robberyChoice('pay')">🤝 Pay 10%</button><button class="go-btn" data-tap="robberyChoice('fight')">🥊 Fight 50/50</button><button class="go-btn" data-tap="robberyChoice('run')">🏃 Run 65%</button><div class="go-result" id="goResult">${window._robMsg||''}</div>`;}
+function robberyChoice(type){const p=getPlayer(state.selectedId);if(!p)return;if(type==='pay'){const loss=Math.min(p.score,Math.max(5,Math.floor(p.score*.1)));p.score-=loss;window._robMsg=`🤝 Paid ${loss}. Safe but sad.`;}else if(type==='fight'){if(Math.random()<.5){p.score+=40;window._robMsg='🥊 Won the fight! +40 from mugger.';winSound();confetti();}else{const loss=Math.min(p.score,40);p.score-=loss;window._robMsg=`💀 Lost fight! -${loss}.`;loseSound();}}else{if(Math.random()<.65){window._robMsg='🏃 Escaped cleanly!';}else{const loss=Math.min(p.score,25);p.score-=loss;window._robMsg=`😵 Tripped while running! -${loss}.`;loseSound();}}normalizeAll();saveState();renderPlayers();if(chaosMode&&Math.random()<.35)setTimeout(()=>triggerRandomChaos(p.id),700);renderRobbery();}
+function renderThief(){const outcomes=shuffle([{t:'points',v:30},{t:'points',v:60},{t:'steal',pct:.35},{t:'robbed',pct:.25},{t:'points',v:-25},{t:'double'},{t:'triple'},{t:'half'},{t:'points',v:15}]);window._thiefOutcomes=outcomes;window._thiefOver=false;$('goBody').innerHTML=`<h2>🎒 Point Thief Bags</h2><p>One bag. Random fate.</p><div class="go-boxes">${outcomes.map((o,i)=>`<div class="go-box" id="tbag${i}" data-tap="openThief(${i})">🎒</div>`).join('')}</div><div class="go-result" id="goResult">${window._thiefMsg||''}</div>`;}
+function openThief(i){if(window._thiefOver)return;window._thiefOver=true;const el=$('tbag'+i);if(!el)return;el.classList.add('shake');beep(300,.1);setTimeout(()=>{el.classList.add('opened');const ev=window._thiefOutcomes[i];const msg=executeChaosEvent(state.selectedId,ev,false);window._thiefMsg='🎒 '+msg;el.innerHTML=`<span style="font-size:1.2rem;font-weight:900">${msg.length>28?msg.slice(0,28)+'…':msg}</span>`;renderThief();},500);}
+const RENDERERS={wheel:renderWheel,dice:renderDice,stopper:renderStopper,mystery:renderMystery,cards:renderCards,slots:renderSlots,bottle:renderBottle,lucky:renderLucky,treasure:renderTreasure,darts:renderDarts,coin:renderCoin,balloons:renderBalloons,mole:renderMole,higher:renderHigher,reaction:renderReaction,memory:renderMemory,chaoswheel:renderChaosWheel,heist:renderHeist,double:renderDouble,robbery:renderRobbery,thief:renderThief};
+function openGameSettings(){const m=$('gameSettingsModal');let html='';for(const key of Object.keys(gameConfig)){const c=gameConfig[key];html+=`<div style="margin-bottom:12px;text-align:left"><strong>${c.icon} ${c.name}</strong><br>`;if(['chaoswheel','heist','double','robbery','thief'].includes(key))html+='Fixed chaos game.';else if(key==='treasure')html+=`Gems: <input id="cfg-gems" value="${c.gems.join(', ')}"> Bombs: <input id="cfg-bombs" type="number" value="${c.bombs}">`;else if(key==='stopper'||key==='reaction')html+=`Zones: <input id="cfg-zones-${key}" value="${c.zones.join(', ')}">`;else if(key==='slots')html+=`Values: <input id="cfg-values-slots" value="${c.values.join(', ')}"> Jackpot: <input id="cfg-jackpot" type="number" value="${c.jackpot}">`;else if(key==='coin')html+=`Win, Lose: <input id="cfg-coin" value="${c.win}, ${c.lose}">`;else if(key==='mole')html+=`Values: <input id="cfg-values-mole" value="${c.values.join(', ')}"> Seconds: <input id="cfg-mole-dur" type="number" value="${c.duration}">`;else html+=`Values: <input id="cfg-values-${key}" value="${c.values.join(', ')}">`;html+='</div>';}$('gsBody').innerHTML=html;m.classList.add('visible');}
+function saveGameSettings(){const num=s=>String(s).split(',').map(x=>parseFloat(x.trim())).filter(x=>!isNaN(x));for(const key of Object.keys(gameConfig)){if(['chaoswheel','heist','double','robbery','thief'].includes(key))continue;const c=gameConfig[key];if(key==='treasure'){const g=$('cfg-gems');if(g&&num(g.value).length)c.gems=num(g.value);const b=$('cfg-bombs');if(b)c.bombs=Math.max(1,parseInt(b.value,10)||1);}else if(key==='stopper'||key==='reaction'){const z=$('cfg-zones-'+key);if(z){const arr=num(z.value);if(arr.length>=4)c.zones=arr.slice(0,4);}}else if(key==='slots'){const v=$('cfg-values-slots');if(v&&num(v.value).length)c.values=num(v.value);const j=$('cfg-jackpot');if(j)c.jackpot=parseFloat(j.value)||c.jackpot;}else if(key==='coin'){const cc=$('cfg-coin');if(cc){const arr=num(cc.value);if(arr.length>=2){c.win=arr[0];c.lose=arr[1];}}}else if(key==='mole'){const v=$('cfg-values-mole');if(v&&num(v.value).length)c.values=num(v.value);const d=$('cfg-mole-dur');if(d)c.duration=Math.max(5,parseInt(d.value,10)||20);}else{const v=$('cfg-values-'+key);if(v&&num(v.value).length)c.values=num(v.value);}}localStorage.setItem('eslGameConfigV3',JSON.stringify(gameConfig));buildGamesGrid();$('gameSettingsModal').classList.remove('visible');showToast('Saved ✅','success');}
+function resetGameConfig(){gameConfig=JSON.parse(JSON.stringify(DEFAULT_GAME_CONFIG));localStorage.setItem('eslGameConfigV3',JSON.stringify(gameConfig));buildGamesGrid();openGameSettings();showToast('Reset','info');}
+const MATCHES={};
+function initMatch(id,hostId,leftTitle,rightTitle,pairs,resultId){MATCHES[id]={pairs,sel:null,resultId,map:{}};const lefts=shuffle(pairs.map((p,i)=>({t:p.l,i}))),rights=shuffle(pairs.map((p,i)=>({t:p.r,i})));$(hostId).innerHTML=`<div class="match-col"><h4>${leftTitle}</h4>${lefts.map(o=>`<div class="match-item mt-${id}" data-i="${o.i}" onclick="mSel('${id}',this)">${o.t}</div>`).join('')}</div><div class="match-col"><h4>${rightTitle}</h4>${rights.map(o=>`<div class="match-item mr-${id}" data-i="${o.i}" onclick="mPlace('${id}',this)">${o.t}</div>`).join('')}</div>`;}
+function mSel(id,el){$$('.mt-'+id).forEach(e=>e.classList.remove('selected'));el.classList.add('selected');MATCHES[id].sel=+el.dataset.i;}
+function mPlace(id,el){const M=MATCHES[id];if(M.sel===null){showToast('Select left item first','info');return;}M.map[M.sel]=+el.dataset.i;const t=document.querySelector(`.mt-${id}[data-i="${M.sel}"]`);if(t){t.classList.remove('selected');t.style.borderColor='var(--accent)';t.style.background='#fff3e0';}M.sel=null;}
+function mHint(id){const M=MATCHES[id];if(M.sel===null){showToast('Select left item first','info');return;}const t=document.querySelector(`.mr-${id}[data-i="${M.sel}"]`);if(t){t.classList.add('hintpulse');setTimeout(()=>t.classList.remove('hintpulse'),2100);}}
+function mReveal(id){const M=MATCHES[id];M.pairs.forEach((p,i)=>M.map[i]=i);$$('.mt-'+id).forEach(el=>{el.classList.remove('selected','wrong');el.classList.add('correct');});setRes(M.resultId,`All revealed: ${M.pairs.length}/${M.pairs.length}`,'success');}
+function mCheck(id){const M=MATCHES[id];let ok=0;$$('.mt-'+id).forEach(el=>{const i=+el.dataset.i;el.classList.remove('correct','wrong');if(M.map[i]===i){el.classList.add('correct');ok++;}else el.classList.add('wrong');});setRes(M.resultId,`Score: ${ok}/${M.pairs.length}`,ok===M.pairs.length?'success':'danger');ok===M.pairs.length?winSound():loseSound();}
+function mReset(id){const M=MATCHES[id];M.map={};M.sel=null;$$('.mt-'+id+',.mr-'+id).forEach(el=>{el.classList.remove('selected','correct','wrong','hintpulse');el.style.borderColor='';el.style.background='';});setRes(M.resultId,'','');}
+function setRes(id,txt,color){const el=$(id);if(!el)return;el.textContent=txt;el.style.color=color==='success'?'var(--success)':color==='danger'?'var(--danger)':'';el.style.display='block';}
+const SORTS={};
+function initSort(id,hostId,zones,items,resultId,intro){SORTS[id]={zones,items,map:{},sel:null,resultId};const chips=items.map((it,i)=>`<span class="chip" id="sc-${id}-${i}" onclick="sSel('${id}',${i})">${it.w}</span>`).join('');const zoneHtml=zones.map(z=>`<div class="sortzone" id="sz-${id}-${z.key}" onclick="sPlace('${id}','${z.key}')"><h4>${z.label}</h4><div class="slots" id="ssl-${id}-${z.key}"></div></div>`).join('');$(hostId).innerHTML=`${intro?`<p>${intro}</p>`:''}<div class="chips" id="schips-${id}">${chips}</div><div class="sortwrap">${zoneHtml}</div><div style="text-align:center"><button class="mini-btn mini-hint" onclick="sHint('${id}')">💡 Hint</button><button class="mini-btn mini-reveal" onclick="sReveal('${id}')">👁 Reveal</button></div><div style="text-align:center;margin-top:8px"><button class="btn btn-success" onclick="sCheck('${id}')">✅ Check</button><button class="btn" onclick="sReset('${id}')">🔄 Reset</button></div><div id="${resultId}" class="hint-text" style="display:block;text-align:center;font-weight:bold"></div>`;}
+function sSel(id,i){$$(`#schips-${id} .chip`).forEach(c=>c.classList.remove('sel'));const el=$(`sc-${id}-${i}`);if(el)el.classList.add('sel');SORTS[id].sel=i;}
+function sPlace(id,k){const S=SORTS[id];if(S.sel===null){showToast('Click word first','info');return;}S.map[S.sel]=k;S.sel=null;sRefresh(id);}
+function sUnplace(id,i){delete SORTS[id].map[i];sRefresh(id);}
+function sRefresh(id){const S=SORTS[id];S.zones.forEach(z=>{const host=$(`ssl-${id}-${z.key}`);if(!host)return;host.innerHTML='';Object.keys(S.map).filter(i=>S.map[i]===z.key).forEach(i=>{const sp=document.createElement('span');sp.className='chip placed';sp.textContent=S.items[i].w;sp.onclick=()=>sUnplace(id,+i);host.appendChild(sp);});});$$(`#schips-${id} .chip`).forEach(c=>{const i=+c.id.split('-').pop();c.classList.toggle('done',S.map[i]!==undefined);});}
+function sHint(id){const S=SORTS[id];if(S.sel===null){showToast('Select word first','info');return;}const k=S.items[S.sel].k,z=$(`sz-${id}-${k}`);if(z){z.classList.add('hintpulse');setTimeout(()=>z.classList.remove('hintpulse'),2100);}}
+function sReveal(id){const S=SORTS[id];S.items.forEach((it,i)=>S.map[i]=it.k);sRefresh(id);setRes(S.resultId,'All revealed!','success');}
+function sCheck(id){const S=SORTS[id];let ok=0;S.items.forEach((it,i)=>{const c=$(`sc-${id}-${i}`);if(c){c.style.borderColor='';c.style.background='';}if(S.map[i]===it.k){ok++;if(c){c.style.borderColor='var(--success)';c.style.background='#e8f5e9';}}else if(c){c.style.borderColor='var(--danger)';c.style.background='#ffebee';}});setRes(S.resultId,`Score: ${ok}/${S.items.length}`,ok===S.items.length?'success':'danger');ok===S.items.length?winSound():loseSound();}
+function sReset(id){const S=SORTS[id];S.map={};S.sel=null;$$(`#schips-${id} .chip`).forEach(c=>{c.classList.remove('done','sel');c.style.borderColor='';c.style.background='';});sRefresh(id);setRes(S.resultId,'','');}
+const FILLS={};
+function initFill(id,hostId,data,resultId){FILLS[id]={data,resultId};$(hostId).innerHTML=data.map((d,i)=>`<div class="practice-item"><strong>${i+1}.</strong> ${d.q.replace('______','<input type="text" class="fi-'+id+'" data-index="'+i+'" style="display:inline-block;border:none;border-bottom:2px dashed var(--accent);background:transparent;font-size:1rem;width:150px;text-align:center" placeholder="???">')}<div style="margin-top:6px"><button class="mini-btn mini-hint" onclick="fHint('${id}',${i})">💡 Hint</button><button class="mini-btn mini-reveal" onclick="fReveal('${id}',${i})">👁 Reveal</button><span id="fh-${id}-${i}" class="hint-text" style="display:inline"></span></div></div>`).join('');}
+function fHint(id,i){const d=FILLS[id].data[i],el=$(`fh-${id}-${i}`);if(el){el.style.display='inline';el.textContent='💡 '+d.hint;}}
+function fReveal(id,i){const d=FILLS[id].data[i],inp=$$('.fi-'+id)[i];if(inp){inp.value=d.ans[0];inp.style.color='var(--success)';inp.style.borderBottomColor='var(--success)';}}
+function fCheck(id){const data=FILLS[id].data;let ok=0;$$('.fi-'+id).forEach(inp=>{const i=+inp.dataset.index,u=inp.value.trim().toLowerCase(),good=data[i].ans.some(a=>{const an=a.toLowerCase();return u===an||(u.length>3&&(an.includes(u)||u.includes(an)));});inp.style.borderBottomColor=good?'var(--success)':'var(--danger)';inp.style.color=good?'var(--success)':'var(--danger)';if(good)ok++;else inp.value=data[i].ans[0];});setRes(FILLS[id].resultId,`Score: ${ok}/${data.length}`,ok===data.length?'success':'danger');ok===data.length?winSound():loseSound();}
+function fReset(id){$$('.fi-'+id).forEach(inp=>{inp.value='';inp.style.borderBottomColor='';inp.style.color='';});$$(`[id^="fh-${id}-"]`).forEach(el=>el.textContent='');setRes(FILLS[id].resultId,'','');}
+const containerPairs=[{l:'🥛 Milk',r:'Carton'},{l:'🍓 Jam',r:'Jar'},{l:'🍞 Bread',r:'Loaf'},{l:'🍲 Soup',r:'Can'},{l:'🍚 Rice',r:'Bag/Sack'}];
+const collectivePairs=[{l:'Pride',r:'Lions'},{l:'Flock',r:'Birds/Sheep'},{l:'Herd',r:'Cattle/Elephants'},{l:'Pack',r:'Wolves/Dogs'},{l:'Swarm',r:'Bees'},{l:'School',r:'Fish'},{l:'Pod',r:'Whales/Dolphins'},{l:'Gaggle',r:'Ducks'}];
+const idiomPairs=[{l:'Piece of cake',r:'Very easy'},{l:'Go bananas',r:'Very excited/crazy'},{l:'Couch potato',r:'Lazy TV watcher'},{l:'Wolf down',r:'Eat quickly'},{l:'Chicken out',r:'Withdraw from fear'},{l:'Monkey around',r:'Play sillily'},{l:'Bad egg',r:'Dishonest person'},{l:'Pig out',r:'Eat greedily'}];
+const animalFillData=[{q:'Horse baby: ______',ans:['foal'],hint:'Not cub.'},{q:'Chicken female: ______',ans:['hen'],hint:'Starts H.'},{q:'Cow baby: ______',ans:['calf'],hint:'Plural calves.'},{q:'Cat baby: ______',ans:['kitten'],hint:'6 letters.'},{q:'Sheep baby: ______',ans:['lamb'],hint:'Silent b.'},{q:'Dog baby: ______',ans:['pup','puppy'],hint:'P.'},{q:'Duck male: ______',ans:['drake'],hint:'Sounds like dragon.'},{q:'Male bee: ______',ans:['drone'],hint:'Buzzes around.'}];
+const vowelItems=[{w:'Home',k:'L'},{w:'Cut',k:'S'},{w:'Bike',k:'L'},{w:'Pet',k:'S'},{w:'Rope',k:'L'},{w:'Cake',k:'L'},{w:'Sit',k:'S'},{w:'Night',k:'L'}];
+const spellData=[{q:'Home (Long) → H _ M _',ans:['home'],hint:'Magic e.'},{q:'Cut (Short) → C _ T',ans:['cut'],hint:'One vowel.'},{q:'Bike (Long) → B _ K _',ans:['bike'],hint:'Silent e.'},{q:'Pet (Short) → P _ T',ans:['pet'],hint:'Animal.'},{q:'Rope (Long) → R _ P _',ans:['rope'],hint:'Skipping.'}];
+const cuItems=[{w:'Egg',k:'C'},{w:'Cheese',k:'U'},{w:'Banana',k:'C'},{w:'Juice',k:'U'},{w:'Tomato',k:'C'},{w:'Bread',k:'U'},{w:'Carrot',k:'C'},{w:'Water',k:'U'},{w:'Apple',k:'C'},{w:'Meat',k:'U'},{w:'Information',k:'U'},{w:'Friend',k:'C'},{w:'Advice',k:'U'},{w:'Idea',k:'C'}];
+const compFormData=[{q:'good → ______',ans:['better'],hint:'Irregular.'},{q:'bad → ______',ans:['worse'],hint:'Irregular.'},{q:'hot → ______',ans:['hotter'],hint:'Double t.'},{q:'happy → ______',ans:['happier'],hint:'y to i.'},{q:'beautiful → ______',ans:['more beautiful'],hint:'Use more.'},{q:'far → ______',ans:['farther','further'],hint:'Irregular.'},{q:'little → ______',ans:['less'],hint:'Amount.'},{q:'many → ______',ans:['more'],hint:'Irregular.'},{q:'large → ______',ans:['larger'],hint:'Ends e, add r.'},{q:'funny → ______',ans:['funnier'],hint:'y to i.'}];
+const quantData=[{q:'There are ______ apples. (many/much)',ans:['many'],hint:'Countable plural.'},{q:'How ______ water? (many/much)',ans:['much'],hint:'Uncountable liquid.'},{q:'I need ______ sugar. (some/any)',ans:['some'],hint:'Positive sentence.'},{q:'There isn\'t ______ milk. (some/any)',ans:['any'],hint:'Negative.'},{q:'Would you like ______ tea? (some/any)',ans:['some'],hint:'Offer.'},{q:'a ______ of bread (few/little)',ans:['little'],hint:'Bread uncountable.'},{q:'a ______ of eggs (few/little)',ans:['few'],hint:'Eggs countable.'},{q:'______ money, fewer coins (less/fewer)',ans:['less'],hint:'Money uncountable.'}];
+const idiomFillData=[{q:'The test was easy; it was a ______.',ans:['piece of cake'],hint:'Dessert.'},{q:'Don\'t ______ with your food.',ans:['monkey around'],hint:'Primate.'},{q:'My brother is a total ______.',ans:['couch potato'],hint:'Lazy TV.'},{q:'Students started to ______.',ans:['go bananas'],hint:'Fruit.'},{q:'He managed to ______ three burgers.',ans:['wolf down'],hint:'Predator.'},{q:'I wanted to jump, but I ______.',ans:['chickened out','chicken out'],hint:'Past tense bird.'},{q:'John is a ______.',ans:['bad egg'],hint:'Rotten.'},{q:'We always ______ on Thanksgiving.',ans:['pig out'],hint:'Farm animal.'}];
+const mcqData=[{q:'1. Which is a mammal?',opts:['Eagle','Whale','Shark','Frog'],c:1,hint:'Breathes air, nurses young.',exp:'Whale is mammal.'},{q:'2. Which is an insect?',opts:['Spider','Butterfly','Snake','Lizard'],c:1,hint:'Six legs.',exp:'Butterfly has 6 legs.'},{q:'3. Ferret out means:',opts:['Play roughly','Search until found','Eat quickly','Leave quietly'],c:1,hint:'Digging prey.',exp:'Search until found.'},{q:'4. Which is a bird?',opts:['Bat','Penguin','Dolphin','Bear'],c:1,hint:'Feathers, eggs.',exp:'Penguin is bird.'},{q:'5. Lion describer:',opts:['Gentle','Fierce','Tiny','Slimy'],c:1,hint:'Wild and frightening.',exp:'Fierce.'},{q:'6. Correct comparative of good?',opts:['gooder','more good','better','best'],c:2,hint:'Irregular.',exp:'better.'},{q:'7. hot → ?',opts:['hoted','hotter','more hot','hottter'],c:1,hint:'CVC double t.',exp:'hotter.'},{q:'8. as ___ as',opts:['hotter','more hot','hot','most hot'],c:2,hint:'Base adjective.',exp:'as hot as.'},{q:'9. The harder you work, the ______ you get.',opts:['lucky','more lucky','luckier','luckiest'],c:2,hint:'Comparative.',exp:'luckier.'},{q:'10. Which is wrong?',opts:['more beautiful','prettier than','more better','hotter than'],c:2,hint:'Double comparative.',exp:'more better is wrong.'}];
+const tfData=[{s:'A couch potato loves exercise.',a:false,hint:'Opposite.',exp:'Lazy TV watcher.'},{s:'Bread is countable.',a:false,hint:'Use loaf.',exp:'Bread uncountable.'},{s:'Male bee is drone.',a:true,hint:'Bonus fact.',exp:'Yes.'},{s:'Duck out means leave quietly.',a:true,hint:'Dive under.',exp:'Yes.'},{s:'Whales lay eggs.',a:false,hint:'Mammal.',exp:'Live birth.'},{s:'Better is comparative of good.',a:true,hint:'Irregular.',exp:'Yes.'},{s:'We say more better.',a:false,hint:'Double marking.',exp:'No.'},{s:'Penguin is a mammal.',a:false,hint:'Feathers.',exp:'Bird.'},{s:'Spider is an insect.',a:false,hint:'Eight legs.',exp:'Arachnid.'},{s:'The more you read, the more you know is parallel comparison.',a:true,hint:'The + comp, the + comp.',exp:'Yes.'}];
+const errData=[{s:'My phone is more better than yours.',c:'✅ better — "better" is already comparative.'},{s:'Today is hoter than yesterday.',c:'✅ hotter — double the t in CVC words.'},{s:'She is prettier that her sister.',c:'✅ than — comparisons use than.'},{s:'He is as taller as his brother.',c:'✅ as tall as — equality uses base adjective.'},{s:'The more I practice, the more good I become.',c:'✅ the better — comparative after the.'}];
+const readData=[{q:'1. What food containers are mentioned? (2)',hint:'Paragraph 1.',model:'A loaf of bread and a carton of juice.'},{q:'2. What does wolfed down mean? (2)',hint:'Idiom.',model:'They ate very quickly.'},{q:'3. Why couch potatoes? (4)',hint:'Full + lazy + rest.',model:'They ate a lot quickly, felt full and lazy, and sat resting like TV watchers.'},{q:'4. One uncountable + one countable noun. (4)',hint:'juice / apples.',model:'Uncountable: juice. Countable: apples.'},{q:'5. Add an animal and why. Use describer. (8)',hint:'4+ sentences.',model:'I would add an elephant because elephants are huge and gentle. They would be more impressive than the sleeping lion, and my little sister would not be scared because elephants are known for being kind.'}];
+const gameQuestions=[
+{cat:'Vocab',q:'Milk container?',hint:'Paper box.',a:'Carton of milk',exp:'Carton is the unit.'},{cat:'Vocab',q:'Bread container?',hint:'Shape baked.',a:'Loaf of bread',exp:'Loaf is form.'},{cat:'Vocab',q:'Horse baby?',hint:'Not cub.',a:'Foal',exp:'Stallion/mare/foal.'},{cat:'Vocab',q:'Sheep female?',hint:'Sounds like U.',a:'Ewe',exp:'Ram/ewe/lamb.'},{cat:'Vocab',q:'Home vowel long or short?',hint:'Magic e.',a:'Long',exp:'Silent e makes o long.'},{cat:'Grammar',q:'many apples or much apples?',hint:'Countable.',a:'many apples',exp:'Apples countable plural.'},{cat:'Grammar',q:'much water or many water?',hint:'Liquid.',a:'much water',exp:'Water uncountable.'},{cat:'Grammar',q:'some or any in negative?',hint:'Not positive.',a:'any',exp:'Negatives use any.'},{cat:'Comparative',q:'good comparative?',hint:'Irregular.',a:'better',exp:'Not more good.'},{cat:'Comparative',q:'hot comparative?',hint:'Double consonant.',a:'hotter',exp:'CVC rule.'},{cat:'Comparative',q:'happy comparative?',hint:'y to i.',a:'happier',exp:'Two syllable y rule.'},{cat:'Comparative',q:'beautiful comparative?',hint:'Long adjective.',a:'more beautiful',exp:'Use more.'},{cat:'Comparative',q:'as hot ___ yours',hint:'Equality.',a:'as',exp:'as + adj + as.'},{cat:'Idioms',q:'Very easy idiom?',hint:'Dessert.',a:'piece of cake',exp:'Not literal cake.'},{cat:'Idioms',q:'Eat quickly idiom?',hint:'Predator.',a:'wolf down',exp:'Wolfed down.'},{cat:'Idioms',q:'Lazy TV watcher?',hint:'Furniture + veg.',a:'couch potato',exp:'Coined 1976.'},{cat:'Idioms',q:'Leave quietly?',hint:'Bird dives.',a:'duck out',exp:'Ducked out.'},{cat:'Animals',q:'Whale is what?',hint:'Not fish.',a:'Mammal',exp:'Breathes air, milk.'},{cat:'Animals',q:'Spider is insect?',hint:'Leg count.',a:'No, arachnid',exp:'8 legs.'},{cat:'Animals',q:'Penguin is bird?',hint:'Feathers.',a:'Yes',exp:'Flightless bird.'},{cat:'Reading',q:'Zoo passage: monkeys were doing what?',hint:'Playing.',a:'monkeying around',exp:'Idiom in text.'},{cat:'Reading',q:'Zoo passage: duck did what?',hint:'Pun.',a:'ducked out',exp:'Left quickly.'},{cat:'Writing',q:'Polite order starter?',hint:'Would like.',a:'I would like...',exp:'Soft request.'},{cat:'Writing',q:'Question to ask dessert?',hint:'Would you like.',a:'Would you like any dessert?',exp:'Inversion + question mark.'}];
+function renderPractice(){initMatch('cont','containerMatch','🍽️ Food','📦 Container',containerPairs,'contResult');initMatch('coll','collectiveMatch','Group word','Animal',collectivePairs,'collResult');initFill('animal','animalFill',animalFillData,'animalResult');initSort('vowel','vowelSort',[{key:'S',label:'Short (S)'},{key:'L',label:'Long (L)'}],vowelItems,'vowelResult');initFill('spell','spellFill',spellData,'spellResult');initSort('cu','cuSort',[{key:'C',label:'Countable'},{key:'U',label:'Uncountable'}],cuItems,'cuResult');initFill('comp','compFill',compFormData,'compResult');initFill('quant','quantFill',quantData,'quantResult');initMatch('idiomMean','idiomMatch','Idiom','Meaning',idiomPairs,'idiomMeanResult');initFill('idiom','idiomFill',idiomFillData,'idiomResult');renderMCQ();renderTF();renderErr();renderReading();}
+const mcSel={};
+function renderMCQ(){$('mcqBox').innerHTML=mcqData.map((q,qi)=>`<div class="practice-item"><strong>${q.q}</strong><div style="margin-top:8px">${q.opts.map((o,oi)=>`<span class="opt" id="mc-${qi}-${oi}" onclick="mcPick(${qi},${oi})">${String.fromCharCode(97+oi)}) ${o}</span>`).join('')}</div><div style="margin-top:6px"><button class="mini-btn mini-hint" onclick="mcHint(${qi})">💡 Hint</button><button class="mini-btn mini-reveal" onclick="mcReveal(${qi})">👁 Reveal</button></div><div id="mch-${qi}" class="hint-text"></div></div>`).join('');}
+function mcPick(qi,oi){mcSel[qi]=oi;$$(`[id^="mc-${qi}-"]`).forEach(e=>e.classList.remove('sel'));const el=$(`mc-${qi}-${oi}`);if(el)el.classList.add('sel');}
+function mcHint(qi){const q=mcqData[qi],wrong=q.opts.map((_,i)=>i).filter(i=>i!==q.c),kill=wrong[Math.floor(Math.random()*wrong.length)],el=$(`mc-${qi}-${kill}`);if(el)el.classList.add('struck');const h=$('mch-'+qi);if(h){h.style.display='block';h.textContent='💡 '+q.hint;}}
+function mcReveal(qi){const q=mcqData[qi];mcSel[qi]=q.c;$$(`[id^="mc-${qi}-"]`).forEach(e=>e.classList.remove('sel','struck'));const el=$(`mc-${qi}-${q.c}`);if(el)el.classList.add('right');const h=$('mch-'+qi);if(h){h.style.display='block';h.textContent='👁 '+String.fromCharCode(97+q.c)+') '+q.opts[q.c]+' — '+q.exp;}}
+function mcqCheck(){let ok=0;mcqData.forEach((q,qi)=>{$$(`[id^="mc-${qi}-"]`).forEach(e=>e.classList.remove('right','bad'));const corr=$(`mc-${qi}-${q.c}`);if(corr)corr.classList.add('right');if(mcSel[qi]===q.c)ok++;else{const bad=$(`mc-${qi}-${mcSel[qi]}`);if(bad)bad.classList.add('bad');}});setRes('mcqResult',`Score: ${ok}/${mcqData.length}`,ok===mcqData.length?'success':'danger');ok===mcqData.length?winSound():loseSound();}
+function mcqReset(){Object.keys(mcSel).forEach(k=>delete mcSel[k]);mcqData.forEach((q,qi)=>{$$(`[id^="mc-${qi}-"]`).forEach(e=>e.classList.remove('sel','right','bad','struck'));const h=$('mch-'+qi);if(h){h.textContent='';h.style.display='none';}});setRes('mcqResult','','');}
+const tfSel={};
+function renderTF(){$('tfBox').innerHTML=tfData.map((d,i)=>`<div class="practice-item"><strong>${d.s}</strong><div style="margin-top:8px"><button class="btn tfb" data-i="${i}" data-v="true" onclick="tfPick(this)" style="background:#78909c;padding:6px 15px;font-size:.9rem">True</button><button class="btn tfb" data-i="${i}" data-v="false" onclick="tfPick(this)" style="background:#78909c;padding:6px 15px;font-size:.9rem">False</button><button class="mini-btn mini-hint" onclick="tfHint(${i})">💡</button><button class="mini-btn mini-reveal" onclick="tfReveal(${i})">👁</button></div><div id="tfh-${i}" class="hint-text"></div></div>`).join('');}
+function tfPick(el){const i=el.dataset.i;$$(`.tfb[data-i="${i}"]`).forEach(b=>{b.style.background='#78909c';b.style.color='#fff';});el.style.background='var(--accent)';el.style.color='#fff';tfSel[i]=el.dataset.v==='true';}
+function tfHint(i){const el=$('tfh-'+i);if(el){el.style.display='block';el.textContent='💡 '+tfData[i].hint;}}
+function tfReveal(i){const d=tfData[i];tfSel[i]=d.a;$$(`.tfb[data-i="${i}"]`).forEach(b=>{const v=b.dataset.v==='true';b.style.background=v===d.a?'var(--success)':'#78909c';b.style.color='#fff';});const el=$('tfh-'+i);if(el){el.style.display='block';el.textContent='👁 '+(d.a?'TRUE':'FALSE')+' — '+d.exp;}}
+function tfCheck(){let ok=0;tfData.forEach((d,i)=>{$$(`.tfb[data-i="${i}"]`).forEach(b=>{const v=b.dataset.v==='true';b.style.background=v===d.a?'var(--success)':(tfSel[i]===v?'var(--danger)':'#78909c');b.style.color='#fff';});if(tfSel[i]===d.a)ok++;});setRes('tfResult',`Score: ${ok}/${tfData.length}`,ok===tfData.length?'success':'danger');ok===tfData.length?winSound():loseSound();}
+function tfReset(){Object.keys(tfSel).forEach(k=>delete tfSel[k]);$$('.tfb').forEach(b=>{b.style.background='#78909c';b.style.color='#fff';});$$('[id^="tfh-"]').forEach(el=>{el.textContent='';el.style.display='none';});setRes('tfResult','','');}
+function renderErr(){$('errBox').innerHTML=errData.map((e,i)=>`<div class="ehunt" onclick="this.querySelector('.correction').style.display='block'">${i+1}. ${e.s}<div class="correction">${e.c}</div></div>`).join('');}
+function renderReading(){$('readBox').innerHTML=readData.map((d,i)=>`<div class="practice-item"><strong>${d.q}</strong><textarea rows="${i===4?4:2}" id="rd-${i}" placeholder="Write answer..."></textarea><div style="margin-top:6px"><button class="mini-btn mini-hint" onclick="rdHint(${i})">💡 Hint</button><button class="mini-btn mini-reveal" onclick="rdReveal(${i})">👁 Model</button></div><div id="rdh-${i}" class="hint-text"></div><div id="rdm-${i}" class="model-box"></div></div>`).join('');}
+function rdHint(i){const el=$('rdh-'+i);if(el){el.style.display='block';el.textContent='💡 '+readData[i].hint;}}
+function rdReveal(i){const el=$('rdm-'+i);if(el){el.style.display='block';el.innerHTML='<strong>Model:</strong> '+readData[i].model;}}
+let currentQ=0;
+function switchSection(id){$$('.section').forEach(s=>s.classList.remove('active'));$$('.band-tab').forEach(t=>t.classList.remove('active'));$('sec-'+id).classList.add('active');event.target.classList.add('active');if(id==='game')hideHintBox();}
+function toggleUI(){document.body.classList.toggle('ui-hidden');}
+function toggleFullscreen(){if(!document.fullscreenElement)document.documentElement.requestFullscreen().catch(()=>showToast('Fullscreen error','error'));else if(document.exitFullscreen)document.exitFullscreen();}
+function toggleTimerWidget(){$('timerWidget').classList.toggle('visible');}
+function presetTimer(sec){$('speakTime').value=sec;startTimer('speak');}
+function startTimer(type){stopTimer();const time=type==='prep'?$('prepTime').value:$('speakTime').value;let s=parseInt(time,10);updateTimerDisplay(s);timerInterval=setInterval(()=>{s--;updateTimerDisplay(s);if(s<=0){stopTimer();showToast("⏰ Time's up!",'error');beep(200,.4,'sawtooth',.12);}},1000);}
+function stopTimer(){clearInterval(timerInterval);}
+function updateTimerDisplay(s){const m=Math.floor(s/60),ss=s%60;$('timerDisplay').textContent=`${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;}
+function addPlayer(){const input=$('newPlayerName'),name=input.value.trim();if(!name)return;state.players.push({id:state.nextId++,name,score:0,color:avatars[(state.nextId-2)%avatars.length]});input.value='';saveState();renderPlayers();}
+function removePlayer(id){state.players=state.players.filter(p=>p.id!==id);if(state.selectedId===id)state.selectedId=null;saveState();renderPlayers();}
+function selectPlayer(id){state.selectedId=state.selectedId===id?null:id;renderPlayers();}
+function randomPlayer(){if(!state.players.length)return;state.selectedId=state.players[Math.floor(Math.random()*state.players.length)].id;renderPlayers();showToast('🎲 Random player!','info');}
+function awardPts(pts){if(state.selectedId===null){showToast('Select player first!','error');return;}const p=getPlayer(state.selectedId);if(p){p.score+=pts;normalizeAll();saveState();renderPlayers();if(pts>0)winSound();else loseSound();showToast(`${pts>0?'+':''}${pts} to ${p.name}!`,pts>0?'success':'error');}}
+function renderPlayers(){const list=$('playersList');if(!state.players.length){list.innerHTML='<p style="text-align:center;color:#78909c">No players.</p>';return;}list.innerHTML=state.players.map(p=>`<div class="player-card ${p.id===state.selectedId?'selected':''}" onclick="selectPlayer(${p.id})"><div style="display:flex;align-items:center"><div class="player-avatar" style="background:${p.color}">${p.name.charAt(0)}</div><span>${p.name}</span></div><div style="display:flex;align-items:center"><span style="font-weight:bold;color:var(--secondary);margin-right:8px">${p.score}</span><button onclick="event.stopPropagation();removePlayer(${p.id})" style="background:var(--danger);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:.75rem">✕</button></div></div>`).join('');}
+function showScoreboard(){const sorted=[...state.players].sort((a,b)=>b.score-a.score),medals=['🥇','🥈','🥉'],cls=['gold','silver','bronze'];$('sbContent').innerHTML=sorted.map((p,i)=>`<div class="sb-entry ${cls[i]||''}"><span style="font-size:1.3rem;font-weight:bold;width:36px">${medals[i]||(i+1)}</span><span style="flex:1;font-weight:bold;margin-left:8px">${p.name}</span><span style="font-size:1.2rem;font-weight:bold;color:var(--secondary)">${p.score}</span></div>`).join('');$('sbModal').classList.add('visible');}
+function hideSB(){$('sbModal').classList.remove('visible');}
+function hideHintBox(){const h=$('gQHint');if(h)h.style.display='none';}
+function renderGame(){const q=gameQuestions[currentQ];$('gQNum').textContent=`Q${currentQ+1}/${gameQuestions.length}`;$('gQCat').textContent=q.cat;$('gQText').textContent=q.q;$('gQAns').style.display='none';$('gQExp').style.display='none';hideHintBox();}
+function hintQ(){const q=gameQuestions[currentQ],h=$('gQHint');if(h){h.textContent='💡 Hint: '+q.hint;h.style.display='block';}}
+function nextQ(){currentQ=(currentQ+1)%gameQuestions.length;renderGame();}
+function prevQ(){currentQ=(currentQ-1+gameQuestions.length)%gameQuestions.length;renderGame();}
+function revealQ(){const q=gameQuestions[currentQ];$('gQAns').textContent='✅ '+q.a;$('gQAns').style.display='block';$('gQExp').textContent='💡 '+q.exp;$('gQExp').style.display='block';}
+function shuffleQ(){for(let i=gameQuestions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[gameQuestions[i],gameQuestions[j]]=[gameQuestions[j],gameQuestions[i]];}currentQ=0;renderGame();showToast('Shuffled!','info');}
+function saveState(){localStorage.setItem(STATE_KEY,JSON.stringify(state));}
+function showToast(msg,type='info'){const t=$('toast');t.textContent=msg;t.className=`toast ${type} show`;setTimeout(()=>t.classList.remove('show'),3000);}
+function init(){const saved=localStorage.getItem(STATE_KEY);if(saved){try{const s=JSON.parse(saved);if(s&&Array.isArray(s.players)&&s.players.length)state=s;}catch(e){}}if(!state.players||!state.players.length){state.players=defaultRoster();state.nextId=DEFAULT_NAMES.length+1;}applyZoom(true);updateChaosUI();$('soundBtn').textContent=soundOn?'🔊':'';buildGamesGrid();renderPractice();renderPlayers();renderGame();}
+init();
+</script>
+</body>
+</html>

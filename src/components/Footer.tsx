@@ -1,7 +1,7 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Masterclass Footer with Copyright and Legal Notices
+ * ESL Mastery Lab Footer with Copyright and Legal Notices
  */
 
 import React from 'react';
@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenShareModal }) => {
           <Award className="w-4 h-4 text-amber-500" />
           <span>Created by Fani</span>
           <span className="text-slate-400">•</span>
-          <span className="text-slate-600 font-normal">RSS Mid-Term Masterclass</span>
+          <span className="text-slate-600 font-normal">ESL Mastery Lab</span>
         </div>
 
         {/* Legal notice */}

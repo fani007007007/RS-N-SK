@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { ShieldCheck, Copy, Check, Award, Lock, ExternalLink, QrCode, Globe, AlertCircle, X } from 'lucide-react';
+import { ShieldCheck, Copy, Check, Award, Lock, Globe, X } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 interface ShareCertificateModalProps {
@@ -40,12 +40,12 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5 text-amber-500" />
             <h3 className="text-base font-extrabold text-slate-900">
-              Official Masterclass Link &amp; Copyright Protection
+              Official ESL Mastery Lab Certificate &amp; Copyright
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -63,7 +63,7 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
               OFFICIAL CERTIFICATE OF COPYRIGHT &amp; AUTHENTICITY
             </span>
             <h4 className="text-lg font-black text-slate-950">
-              Getting Ready for Study — RSS Masterclass
+              ESL Mastery Lab — Complete English Curriculum &amp; Touch Arcade
             </h4>
             <div className="inline-flex items-center gap-1 mt-1 bg-amber-400/20 text-amber-900 border border-amber-400/40 px-3 py-0.5 rounded-full text-xs font-bold">
               <span>Verified Creator:</span>
@@ -88,7 +88,7 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
           </div>
 
           <p className="text-[11px] text-slate-700 text-center leading-relaxed mt-2 pt-2 border-t border-amber-200/60">
-            &copy; 2026 Fani. All rights reserved. Unauthorised copying, altering, reverse-engineering, or unauthorized redistribution of this masterclass resource is strictly prohibited.
+            &copy; 2026 Fani. All rights reserved. Unauthorised copying, altering, reverse-engineering, or unauthorized redistribution of this curriculum application is strictly prohibited.
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
             <span>Your Permanent, Non-Alterable Online Link</span>
           </label>
           <p className="text-[11px] text-slate-500 mb-2">
-            Share this link with students and peers. They can interact with the study modules and board games, but <strong>cannot edit or change your live deployment</strong>:
+            Share this link with students and peers. They can interact with the study modules and 21 arcade games, but <strong>cannot edit, alter, or change your live deployment</strong>:
           </p>
 
           <div className="flex items-center gap-2">
@@ -127,19 +127,19 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
         <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-200 mb-5">
           <h4 className="text-xs font-black text-blue-950 uppercase tracking-wider mb-2 flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-blue-600" />
-            <span>Why No One Can Alter or Edit Your Masterclass</span>
+            <span>Why No One Can Alter or Edit Your App</span>
           </h4>
           <ul className="space-y-2 text-xs text-blue-950">
             <li className="flex items-start gap-2">
               <span className="font-bold text-blue-600">1.</span>
               <span>
-                <strong>Cloud Security Lockdown:</strong> The master files are hosted in a secure Google Cloud Run container. Only your authenticated session can update the underlying code; visitors have zero write access.
+                <strong>Cloud Security Lockdown:</strong> The master files are deployed inside a secure Google Cloud Run container. Only your authenticated session can update the underlying code; visitors have zero write or deploy access.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="font-bold text-blue-600">2.</span>
               <span>
-                <strong>Client-Side Isolation:</strong> When students play games or answer quiz questions, all score changes happen strictly inside their temporary local browser memory. Your master class remains 100% pristine.
+                <strong>Client-Side Isolation:</strong> When students play games or answer quiz drills, all score changes happen strictly inside their temporary local browser memory. Your master class remains 100% pristine.
               </span>
             </li>
             <li className="flex items-start gap-2">
@@ -160,7 +160,7 @@ export const ShareCertificateModal: React.FC<ShareCertificateModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-md transition-all shrink-0"
+          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-md transition-all shrink-0 cursor-pointer"
         >
           Close Certificate Window
         </button>

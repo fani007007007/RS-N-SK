@@ -1,7 +1,7 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Getting Ready for Study — RSS Mid-Term Masterclass
+ * ESL Mastery Lab — Comprehensive Curriculum & Chaos Arcade
  * Created by Fani
  * © 2026 Fani. All rights reserved.
  */
@@ -9,13 +9,14 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { NavigationTabs, SectionKey } from './components/NavigationTabs';
-import { StudySection } from './components/StudySection';
-import { ProcrastinationSection } from './components/ProcrastinationSection';
-import { PrioritisingSection } from './components/PrioritisingSection';
-import { TodoListSection } from './components/TodoListSection';
-import { SmartGoalsSection } from './components/SmartGoalsSection';
-import { SchedulesSection } from './components/SchedulesSection';
-import { ExamSection } from './components/ExamSection';
+import { VocabSection } from './components/VocabSection';
+import { GrammarSection } from './components/GrammarSection';
+import { CompSection } from './components/CompSection';
+import { IdiomsSection } from './components/IdiomsSection';
+import { AnimalsSection } from './components/AnimalsSection';
+import { ReadingSection } from './components/ReadingSection';
+import { WritingSection } from './components/WritingSection';
+import { PracticeLabSection } from './components/PracticeLabSection';
 import { GameShowSection } from './components/GameShowSection';
 import { FloatingSidebar } from './components/FloatingSidebar';
 import { BoardGameOverlay } from './components/BoardGameOverlay';
@@ -23,18 +24,19 @@ import { GameSettingsModal } from './components/GameSettingsModal';
 import { ScoreboardModal } from './components/ScoreboardModal';
 import { ShareCertificateModal } from './components/ShareCertificateModal';
 import { Footer } from './components/Footer';
-import { DEFAULT_PLAYERS, DEFAULT_GAME_CONFIG, Player, GameConfig } from './data/masterclassData';
+import { DEFAULT_PLAYERS, DEFAULT_GAME_CONFIG, Player, GameConfig } from './data/eslData';
 import { sound } from './utils/audio';
 
-const STORAGE_KEY_PLAYERS = 'rss_fani_players_v1';
-const STORAGE_KEY_GAMES = 'rss_fani_game_config_v1';
-const STORAGE_KEY_ZOOM = 'rss_fani_zoom_v1';
+const STORAGE_KEY_PLAYERS = 'esl_fani_players_v2';
+const STORAGE_KEY_GAMES = 'esl_fani_game_config_v2';
+const STORAGE_KEY_ZOOM = 'esl_fani_zoom_v2';
+const STORAGE_KEY_CHAOS = 'esl_fani_chaos_v2';
 
-// Official Shared App URL provided for Fani's masterclass
+// Permanent Live App URL
 const OFFICIAL_APP_URL = 'https://ais-pre-uz3xlnrfpt4snn7wxv2pxr-654542234614.us-west2.run.app';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<SectionKey>('study');
+  const [activeTab, setActiveTab] = useState<SectionKey>('vocab');
   const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth >= 1024;
@@ -43,6 +45,16 @@ export default function App() {
   });
   const [zoomLevel, setZoomLevel] = useState<number>(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [soundOn, setSoundOn] = useState(true);
+
+  // Chaos mode
+  const [chaosMode, setChaosMode] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(STORAGE_KEY_CHAOS) === 'true';
+    } catch {
+      return false;
+    }
+  });
 
   // Modals state
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
@@ -77,19 +89,24 @@ export default function App() {
     setTimeout(() => setToastMsg(null), 3000);
   };
 
-  // Sync players to localStorage
+  // Sync state to localStorage
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY_PLAYERS, JSON.stringify(players));
     } catch {}
   }, [players]);
 
-  // Sync game config to localStorage
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY_GAMES, JSON.stringify(gameConfig));
     } catch {}
   }, [gameConfig]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY_CHAOS, String(chaosMode));
+    } catch {}
+  }, [chaosMode]);
 
   // Anti-tamper & Protection Event Listeners
   useEffect(() => {
@@ -107,7 +124,7 @@ export default function App() {
         (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))
       ) {
         e.preventDefault();
-        showToast('🔒 Source modification is locked on this masterclass.');
+        showToast('🔒 Source modification is locked on this application.');
       }
     };
 
@@ -156,6 +173,14 @@ export default function App() {
     }
   };
 
+  // Sound toggle
+  const handleToggleSound = () => {
+    const next = !soundOn;
+    setSoundOn(next);
+    sound.setMuted(!next);
+    if (next) sound.playClick();
+  };
+
   // Player controls
   const handleSelectPlayer = (id: number) => {
     setSelectedPlayerId(prev => (prev === id ? null : id));
@@ -164,7 +189,7 @@ export default function App() {
 
   const handleAddPlayer = (name: string) => {
     const nextId = (players.length ? Math.max(...players.map(p => p.id)) : 0) + 1;
-    const colors = ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#06b6d4', '#f97316'];
+    const colors = ['#0d9488', '#2563eb', '#16a34a', '#d97706', '#9333ea', '#e11d48', '#0284c7'];
     const newP: Player = {
       id: nextId,
       name,
@@ -194,17 +219,23 @@ export default function App() {
 
   const handleAwardPoints = (points: number) => {
     if (selectedPlayerId === null) {
-      showToast('⚠️ Please select a player first!');
+      showToast('⚠️ Please select a player card first!');
       sound.playError();
       return;
     }
     setPlayers(prev =>
-      prev.map(p => (p.id === selectedPlayerId ? { ...p, score: p.score + points } : p))
+      prev.map(p => (p.id === selectedPlayerId ? { ...p, score: Math.max(0, p.score + points) } : p))
     );
     const p = players.find(x => x.id === selectedPlayerId);
     if (p) {
       showToast(`${points >= 0 ? '+' : ''}${points} points to ${p.name}!`);
     }
+  };
+
+  const handleUpdatePlayerScore = (playerId: number, delta: number) => {
+    setPlayers(prev =>
+      prev.map(p => (p.id === playerId ? { ...p, score: Math.max(0, p.score + delta) } : p))
+    );
   };
 
   const handleSelectRandomPlayer = () => {
@@ -242,9 +273,11 @@ export default function App() {
         onZoomReset={handleZoomReset}
         isFullscreen={isFullscreen}
         onToggleFullscreen={handleToggleFullscreen}
+        soundOn={soundOn}
+        onToggleSound={handleToggleSound}
       />
 
-      {/* Navigation Tabs for the 8 sections */}
+      {/* Navigation Tabs for all 9 sections */}
       <NavigationTabs
         activeTab={activeTab}
         onTabChange={tab => {
@@ -254,19 +287,20 @@ export default function App() {
         }}
       />
 
-      {/* Main Body with Stretched or Sidebar Layout */}
+      {/* Main Body */}
       <div className="flex-1 flex w-full">
         <main
           className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-6 transition-all duration-200"
           style={{ zoom: zoomLevel }}
         >
-          {activeTab === 'study' && <StudySection />}
-          {activeTab === 'proc' && <ProcrastinationSection />}
-          {activeTab === 'prio' && <PrioritisingSection />}
-          {activeTab === 'todo' && <TodoListSection />}
-          {activeTab === 'smart' && <SmartGoalsSection />}
-          {activeTab === 'sched' && <SchedulesSection />}
-          {activeTab === 'exam' && <ExamSection />}
+          {activeTab === 'vocab' && <VocabSection />}
+          {activeTab === 'grammar' && <GrammarSection />}
+          {activeTab === 'comp' && <CompSection />}
+          {activeTab === 'idioms' && <IdiomsSection />}
+          {activeTab === 'animals' && <AnimalsSection />}
+          {activeTab === 'reading' && <ReadingSection />}
+          {activeTab === 'writing' && <WritingSection />}
+          {activeTab === 'practice' && <PracticeLabSection onAwardPoints={handleAwardPoints} />}
           {activeTab === 'game' && (
             <GameShowSection
               players={players}
@@ -275,7 +309,7 @@ export default function App() {
             />
           )}
 
-          {/* Footer inside content flow */}
+          {/* Footer */}
           <Footer onOpenShareModal={() => setIsShareModalOpen(true)} />
         </main>
 
@@ -303,6 +337,8 @@ export default function App() {
           }}
           onOpenSettings={() => setIsSettingsOpen(true)}
           gameConfig={gameConfig}
+          chaosMode={chaosMode}
+          onToggleChaosMode={() => setChaosMode(!chaosMode)}
         />
       </div>
 
@@ -313,7 +349,10 @@ export default function App() {
         onClose={() => setActiveGameKey(null)}
         onOpenSettings={() => setIsSettingsOpen(true)}
         activePlayer={activePlayer}
+        players={players}
+        chaosMode={chaosMode}
         onAwardPoints={handleAwardPoints}
+        onUpdatePlayerScore={handleUpdatePlayerScore}
       />
 
       <ScoreboardModal

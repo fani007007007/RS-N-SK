@@ -7,8 +7,14 @@
 
 class SoundController {
   private ctx: AudioContext | null = null;
+  public muted: boolean = false;
+
+  setMuted(m: boolean) {
+    this.muted = m;
+  }
 
   private getContext(): AudioContext | null {
+    if (this.muted) return null;
     if (typeof window === 'undefined') return null;
     if (!this.ctx) {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;

@@ -1,12 +1,12 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Section 8: Interactive Classroom Game Show
+ * Section 9: Interactive Classroom Game Show (24 Curated ESL Questions)
  */
 
 import React, { useState } from 'react';
-import { Sparkles, ChevronLeft, ChevronRight, Shuffle, Lightbulb, Eye, Award, CheckCircle2 } from 'lucide-react';
-import { GAME_QUESTIONS, Player } from '../data/masterclassData';
+import { Sparkles, ChevronLeft, ChevronRight, Shuffle, Lightbulb, Eye, CheckCircle2 } from 'lucide-react';
+import { GAME_QUESTIONS, Player } from '../data/eslData';
 import { sound } from '../utils/audio';
 
 interface GameShowProps {
@@ -78,7 +78,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
           </div>
           <div className="flex items-center gap-2">
             <span className="bg-indigo-100 text-indigo-900 border border-indigo-200 px-3 py-1 rounded-full text-xs font-bold">
-              {questions.length} Masterclass Questions
+              {questions.length} ESL Mastery Questions
             </span>
             {activePlayer && (
               <span className="bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-full text-xs font-extrabold flex items-center gap-1.5">
@@ -89,7 +89,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
           </div>
         </div>
         <p className="text-slate-600 text-sm leading-relaxed">
-          Project onto the classroom smartboard or screen. Students compete individually or in teams for points. Use the Board Games arcade in the sidebar to spin the wheel or roll the dice for bonus scores!
+          Project onto the classroom smartboard or TV screen. Students compete individually or in teams for points. Use the Touch Arcade in the floating sidebar for bonus dice rolls, lucky numbers, or chaos games!
         </p>
       </div>
 
@@ -109,14 +109,14 @@ export const GameShowSection: React.FC<GameShowProps> = ({
           <div className="flex items-center gap-1.5">
             <button
               onClick={handlePrev}
-              className="p-2 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all"
+              className="p-2 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all cursor-pointer"
               title="Previous Question"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleShuffle}
-              className="px-3 py-1.5 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all flex items-center gap-1"
+              className="px-3 py-1.5 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
               title="Shuffle Question Order"
             >
               <Shuffle className="w-3.5 h-3.5 text-indigo-300" />
@@ -124,7 +124,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
             </button>
             <button
               onClick={handleNext}
-              className="p-2 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all"
+              className="p-2 bg-indigo-800/80 hover:bg-indigo-700 rounded-lg text-white text-xs font-bold transition-all cursor-pointer"
               title="Next Question"
             >
               <ChevronRight className="w-4 h-4" />
@@ -143,7 +143,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
         <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-indigo-800/80">
           <button
             onClick={handleToggleHint}
-            className="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
+            className="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer"
           >
             <Lightbulb className="w-3.5 h-3.5" />
             <span>{showHint ? 'Hide Hint' : '💡 Need a Hint?'}</span>
@@ -151,7 +151,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
 
           <button
             onClick={handleToggleAnswer}
-            className="px-4 py-2 rounded-xl text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
+            className="px-4 py-2 rounded-xl text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>{showAnswer ? 'Hide Solution' : '👁 Reveal Answer'}</span>
@@ -165,19 +165,19 @@ export const GameShowSection: React.FC<GameShowProps> = ({
               </span>
               <button
                 onClick={() => onAwardPoints(5)}
-                className="px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black"
+                className="px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black cursor-pointer"
               >
                 +5
               </button>
               <button
                 onClick={() => onAwardPoints(10)}
-                className="px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black"
+                className="px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black cursor-pointer"
               >
                 +10
               </button>
               <button
                 onClick={() => onAwardPoints(15)}
-                className="px-2 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg text-xs font-black"
+                className="px-2 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg text-xs font-black cursor-pointer"
               >
                 +15
               </button>
@@ -207,7 +207,7 @@ export const GameShowSection: React.FC<GameShowProps> = ({
             </div>
             {activeQ.exp && (
               <div className="text-xs text-emerald-200/90 mt-2 italic border-t border-emerald-800/60 pt-2">
-                <strong>Academic Reference:</strong> {activeQ.exp}
+                <strong>Curriculum Rule:</strong> {activeQ.exp}
               </div>
             )}
           </div>

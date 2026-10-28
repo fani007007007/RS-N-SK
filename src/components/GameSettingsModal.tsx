@@ -1,12 +1,12 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Game Settings Modal for customizing all 12 arcade games
+ * Game Settings Modal for customizing arcade games
  */
 
 import React, { useState } from 'react';
 import { Settings, X, RotateCcw, Save } from 'lucide-react';
-import { GameConfig, DEFAULT_GAME_CONFIG } from '../data/masterclassData';
+import { GameConfig, DEFAULT_GAME_CONFIG } from '../data/eslData';
 
 interface GameSettingsModalProps {
   isOpen: boolean;
@@ -34,8 +34,9 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
       .filter(n => !isNaN(n));
     setFormConfig(prev => {
       const copy = { ...prev };
-      if ('values' in copy[gameKey]) {
-        (copy[gameKey] as { values: number[] }).values = nums;
+      const target = copy[gameKey] as { values?: number[] };
+      if (target && 'values' in target) {
+        target.values = nums;
       }
       return copy;
     });
@@ -52,11 +53,11 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
         <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3 shrink-0">
           <div className="flex items-center gap-2 text-slate-900 font-extrabold text-base">
             <Settings className="w-5 h-5 text-indigo-600" />
-            <span>Customize Board Games (12 Games)</span>
+            <span>Customize Touch Arcade Settings</span>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -75,7 +76,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             </label>
             <input
               type="text"
-              defaultValue={formConfig.wheel.values.join(', ')}
+              defaultValue={formConfig.wheel?.values.join(', ')}
               onChange={e => handleValuesChange('wheel', e.target.value)}
               className="w-full p-2 bg-white border border-slate-300 rounded-lg text-xs"
             />
@@ -88,7 +89,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             </label>
             <input
               type="text"
-              defaultValue={formConfig.dice.values.join(', ')}
+              defaultValue={formConfig.dice?.values.join(', ')}
               onChange={e => handleValuesChange('dice', e.target.value)}
               className="w-full p-2 bg-white border border-slate-300 rounded-lg text-xs"
             />
@@ -102,14 +103,14 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             <div className="flex gap-2">
               <input
                 type="text"
-                defaultValue={formConfig.slots.values.join(', ')}
+                defaultValue={formConfig.slots?.values.join(', ')}
                 onChange={e => handleValuesChange('slots', e.target.value)}
                 className="w-2/3 p-2 bg-white border border-slate-300 rounded-lg text-xs"
                 placeholder="Reel values..."
               />
               <input
                 type="number"
-                defaultValue={formConfig.slots.jackpot}
+                defaultValue={formConfig.slots?.jackpot || 100}
                 onChange={e => {
                   const j = parseFloat(e.target.value) || 100;
                   setFormConfig(prev => ({
@@ -131,7 +132,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             <div className="flex gap-2">
               <input
                 type="text"
-                defaultValue={formConfig.treasure.gems.join(', ')}
+                defaultValue={formConfig.treasure?.gems.join(', ')}
                 onChange={e => {
                   const nums = e.target.value.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
                   setFormConfig(prev => ({
@@ -144,7 +145,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
               />
               <input
                 type="number"
-                defaultValue={formConfig.treasure.bombs}
+                defaultValue={formConfig.treasure?.bombs || 2}
                 onChange={e => {
                   const b = Math.max(1, parseInt(e.target.value) || 1);
                   setFormConfig(prev => ({
@@ -165,7 +166,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             </label>
             <input
               type="text"
-              defaultValue={formConfig.darts.values.join(', ')}
+              defaultValue={formConfig.darts?.values.join(', ')}
               onChange={e => handleValuesChange('darts', e.target.value)}
               className="w-full p-2 bg-white border border-slate-300 rounded-lg text-xs"
             />
@@ -179,7 +180,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
             <div className="flex gap-2">
               <input
                 type="number"
-                defaultValue={formConfig.coin.win}
+                defaultValue={formConfig.coin?.win || 50}
                 onChange={e => {
                   const w = parseFloat(e.target.value) || 50;
                   setFormConfig(prev => ({ ...prev, coin: { ...prev.coin, win: w } }));
@@ -188,7 +189,7 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
               />
               <input
                 type="number"
-                defaultValue={formConfig.coin.lose}
+                defaultValue={formConfig.coin?.lose || 10}
                 onChange={e => {
                   const l = parseFloat(e.target.value) || 10;
                   setFormConfig(prev => ({ ...prev, coin: { ...prev.coin, lose: l } }));
@@ -203,14 +204,14 @@ export const GameSettingsModal: React.FC<GameSettingsModalProps> = ({
         <div className="flex items-center gap-2 pt-3 border-t border-slate-100 mt-3 shrink-0">
           <button
             onClick={handleSave}
-            className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5"
+            className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <Save className="w-3.5 h-3.5" />
             <span>Save Customization</span>
           </button>
           <button
             onClick={onReset}
-            className="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all flex items-center gap-1"
+            className="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all flex items-center gap-1 cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset Defaults</span>
