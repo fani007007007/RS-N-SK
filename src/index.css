@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@keyframes diceRoll {
+  0% { transform: rotate(0) translateY(0); }
+  25% { transform: rotate(90deg) translateY(-14px); }
+  50% { transform: rotate(180deg) translateY(0); }
+  75% { transform: rotate(270deg) translateY(-14px); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes coinFlip {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(1800deg); }
+}
+
+@keyframes boxShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-7deg); }
+  75% { transform: rotate(7deg); }
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-75vh); }
+}
+
+@keyframes ballWiggle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes reelBlur {
+  0% { transform: translateY(-8px); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(-8px); }
+}
+
+.animate-dice {
+  animation: diceRoll 0.85s linear infinite;
+}
+
+.animate-coin {
+  animation: coinFlip 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-box-shake {
+  animation: boxShake 0.45s ease-in-out;
+}
+
+.animate-ball {
+  animation: ballWiggle 1.6s ease-in-out infinite;
+}
+
+.animate-reel {
+  animation: reelBlur 0.12s linear infinite;
+}
+
+/* Perspective utilities for 3D flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
